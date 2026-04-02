@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>م. فتحى منتصر | خبير توثيق الأصول الرقمية</title>
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+
+      function trackEvent(eventName) {
+          if(typeof gtag !== 'undefined') {
+              gtag('event', 'click', {
+                  'event_category': 'User_Action',
+                  'event_label': eventName
+              });
+          }
+      }
+    </script>
+
+    <style>
+        :root {
+            --bg-dark: #0A0F1D;
+            --glass-bg: rgba(26, 35, 58, 0.6);
+            --gold: #D4AF37;
+            --cyan: #00E5FF;
+            --red-alert: #e60000;
+            --text-light: #E0E6ED;
+            --text-gray: #9BA3AF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-dark); color: var(--text-light); overflow-x: hidden;
+            background-image: radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.05), transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.05), transparent 25%);
+        }
+
+        /* شريط الطوارئ */
+        .top-bar {
+            background: var(--gold); color: var(--bg-dark); text-align: center; padding: 10px;
+            font-weight: bold; font-size: 1rem; position: fixed; top: 0; width: 100%; z-index: 1001;
+            box-shadow: 0 2px 15px rgba(212, 175, 55, 0.4); display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;
+            display: none;
+        }
+        .timer-box { background: var(--bg-dark); color: var(--gold); padding: 5px 15px; border-radius: 5px; font-family: 'Tajawal', monospace; font-size: 1.1rem; letter-spacing: 1px; animation: pulseRed 2s infinite;}
+
+        @keyframes pulseRed { 0% {box-shadow: 0 0 0 0 rgba(230,0,0,0.7);} 70% {box-shadow: 0 0 0 10px rgba(230,0,0,0);} 100% {box-shadow: 0 0 0 0 rgba(230,0,0,0);} }
+
+        nav {
+            position: fixed; width: 100%; background: rgba(10, 15, 29, 0.9);
+            backdrop-filter: blur(10px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: top 0.3s ease;
+        }
+        nav .logo { font-size: 1.5rem; font-weight: 900; color: var(--gold); }
+        nav .contact-btn {
+            background: transparent; border: 1px solid var(--gold); color: var(--gold);
+            padding: 8px 20px; border-radius: 20px; text-decoration: none; font-weight: bold; transition: 0.3s;
+        }
+        nav .contact-btn:hover { background: var(--gold); color: var(--bg-dark); }
+
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 20px 20px; }
+        .hero h2 { font-size: 1.5rem; color: var(--cyan); margin-bottom: 10px; letter-spacing: 2px; }
+        .hero h1 { font-size: 4rem; font-weight: 900; margin-bottom: 20px; background: linear-gradient(to left, #fff, #9BA3AF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2;}
+       
+        .scarcity-bar-container { background: rgba(255,255,255,0.1); width: 100%; max-width: 500px; height: 15px; border-radius: 10px; margin: 20px auto; overflow: hidden; position: relative;}
+        /* تم إزالة العرض الثابت هنا ليتحكم فيه الجافاسكريبت */
+        .scarcity-bar { background: var(--red-alert); height: 100%; border-radius: 10px; transition: width 1.5s ease-in-out; }
+        .scarcity-text { color: var(--gold); font-weight: bold; font-size: 1.1rem; margin-bottom: 40px; }
+
+        .guarantee-section { background: rgba(212, 175, 55, 0.05); border: 1px dashed var(--gold); border-radius: 15px; padding: 40px; text-align: center; max-width: 800px; margin: 60px auto; }
+        .guarantee-section i { font-size: 4rem; color: var(--gold); margin-bottom: 20px; }
+        .guarantee-section h3 { font-size: 2rem; color: var(--gold); margin-bottom: 15px; }
+        .guarantee-section p { font-size: 1.2rem; line-height: 1.6; color: var(--text-light); }
+
+        .section { padding: 80px 5%; }
+        .section-title { text-align: center; font-size: 2.5rem; color: var(--gold); margin-bottom: 60px; font-weight: 900;}
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+       
+        .service-link { text-decoration: none; color: inherit; display: block; }
+        .service-card {
+            background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 30px; border-radius: 20px; text-align: center; transition: 0.4s; position: relative; overflow: hidden;
+            height: 100%; display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2); }
+       
+        .discount-badge { position: absolute; top: 15px; right: -35px; background: var(--red-alert); color: #fff; padding: 5px 40px; transform: rotate(45deg); font-weight: bold; font-size: 0.9rem; box-shadow: 0 2px 5px rgba(0,0,0,0.3); z-index: 10;}
+       
+        .service-card i.main-icon { font-size: 3.5rem; color: var(--gold); margin-bottom: 25px; transition: 0.3s;}
+        .service-card:hover i.main-icon { transform: scale(1.1); color: var(--cyan); }
+        .service-card h3 { font-size: 1.6rem; margin-bottom: 15px; color: #fff; font-weight: 800;}
+        .service-card p { margin-bottom: 15px; flex-grow: 1; color: var(--text-gray); line-height: 1.6;}
+
+        .price-box { margin-bottom: 20px; }
+        .old-price { text-decoration: line-through; color: #ff6666; font-size: 1.1rem; margin-left: 10px; }
+        .new-price { color: var(--gold); font-size: 1.8rem; font-weight: 900; }
+
+        .buy-btn {
+            display: inline-block; background: var(--gold); color: var(--bg-dark);
+            padding: 12px 25px; border-radius: 30px; font-weight: 900; font-size: 1.2rem;
+            border: none; transition: 0.3s; margin-top: auto; width: 100%; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        .service-card:hover .buy-btn { transform: scale(1.05); background: #fff; }
+
+        .sales-toast {
+            position: fixed; bottom: -100px; left: 20px; background: rgba(10, 15, 29, 0.95); border-right: 4px solid #25D366;
+            padding: 15px 20px; border-radius: 10px; display: flex; align-items: center; gap: 15px; z-index: 10000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5); transition: bottom 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            max-width: 380px; border: 1px solid rgba(255,255,255,0.1);
+        }
+        .sales-toast.show { bottom: 20px; }
+        .toast-img { min-width: 40px; height: 40px; background: var(--gold); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--bg-dark); font-size: 1.2rem; }
+        .toast-text p { font-size: 0.95rem; margin-bottom: 5px; color: #fff; font-weight: bold; line-height: 1.4;}
+        .toast-text span { font-size: 0.75rem; color: var(--text-gray); }
+
+        .float-wa {
+            position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; text-decoration: none; transition: 0.3s;
+        }
+        .float-wa:hover { transform: scale(1.1); }
+
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .top-bar { font-size: 0.85rem; padding: 8px; flex-direction: column; gap: 5px;}
+            .sales-toast { left: 10px; right: 10px; max-width: none; }
+            .float-wa { width: 50px; height: 50px; font-size: 30px; bottom: 20px; right: 20px;}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar" id="topBar">
+        <span>🔥 عرض التأسيس الذهبي: خصم 50% على الخدمات ينتهي خلال </span>
+        <div class="timer-box" id="countdown">جاري حساب الوقت...</div>
+    </div>
+
+    <nav id="mainNav">
+        <div class="logo">م. فتحي منتصر</div>
+        <a href="https://www.linkedin.com/in/fathy-montaser" target="_blank" class="contact-btn" onclick="trackEvent('Click_LinkedIn')">
+            <i class="fab fa-linkedin"></i> لينكد إن
+        </a>
+    </nav>
+
+    <section class="hero reveal">
+        <h2>الاستشاري المعتمد للأعمال (B2B)</h2>
+        <h1>المهندس / فتحي منتصر</h1>
+       
+        <p id="bookedSeatsText" style="font-size: 1rem; color: #ff6666; margin-bottom: 5px;">⚠️ انتباه: جاري حساب المقاعد المحجوزة...</p>
+        <div class="scarcity-bar-container">
+            <div id="scarcityBar" class="scarcity-bar" style="width: 0%;"></div>
+        </div>
+        <div id="remainingSeatsText" class="scarcity-text">جاري الحساب...</div>
+
+        <p>نحمي استثماراتك ونؤسس البنية التحتية الرقمية لشركتك في السعودية بخطوات قانونية 100%.</p>
+    </section>
+
+    <div class="guarantee-section reveal">
+        <i class="fas fa-shield-alt"></i>
+        <h3>الضمان الذهبي 100%</h3>
+        <p>أنا لا أبيع لك خدمة، بل أبيع لك "النتيجة". جميع خدمات التوثيق واستخراج الاعتمادات الدولية والإعفاء الضريبي مضمونة تماماً. <b>إذا لم يتم تنفيذ الخدمة كما هو متفق عليه، تسترد مبلغك بالكامل فوراً ودون أي أسئلة.</b> قرارك الآن خالي من أي مخاطرة!</p>
+    </div>
+
+    <section class="section">
+        <h2 class="section-title reveal">احجز خدمتك الآن قبل انتهاء العرض</h2>
+        <div class="grid">
+           
+            <a href="https://fathymontaser.gumroad.com/l/BMV" target="_blank" class="service-link reveal" onclick="trackEvent('Buy_Meta')">
+                <div class="service-card">
+                    <div class="discount-badge">خصم 50%</div>
+                    <i class="fas fa-shield-check main-icon"></i>
+                    <h3>توثيق Meta</h3>
+                    <p>تأمين وتوثيق مدراء الأعمال للشركات بالعلامة التجارية الرسمية لضمان استقرار الحملات.</p>
+                    <div class="price-box">
+                        <span class="old-price">$200</span>
+                        <span class="new-price">$100</span>
+                    </div>
+                    <button class="buy-btn">احجز العرض الآن <i class="fas fa-bolt"></i></button>
+                </div>
+            </a>
+
+            <a href="https://fathymontaser.gumroad.com/l/DUNS" target="_blank" class="service-link reveal" onclick="trackEvent('Buy_DUNS')">
+                <div class="service-card">
+                    <div class="discount-badge">خصم 50%</div>
+                    <i class="fas fa-globe main-icon"></i>
+                    <h3>استخراج رقم D-U-N-S</h3>
+                    <p>إدارة الملفات وترجمتها لاستخراج الرقم العالمي الموحد لتأسيس الكيان الرقمي.</p>
+                    <div class="price-box">
+                        <span class="old-price">$200</span>
+                        <span class="new-price">$100</span>
+                    </div>
+                    <button class="buy-btn">احجز العرض الآن <i class="fas fa-bolt"></i></button>
+                </div>
+            </a>
+
+            <a href="https://fathymontaser.gumroad.com/l/ad" target="_blank" class="service-link reveal" onclick="trackEvent('Buy_Tax')">
+                <div class="service-card">
+                    <div class="discount-badge">خصم 50%</div>
+                    <i class="fas fa-chart-line main-icon" style="color:#25D366;"></i>
+                    <h3>إعفاء الضرائب الإعلانية</h3>
+                    <p>هيكلة قانونية لإزالة ضريبة (15%). ستسترد قيمة هذه الخدمة في أول شهر من إعلاناتك!</p>
+                    <div class="price-box">
+                        <span class="old-price">$200</span>
+                        <span class="new-price">$100</span>
+                    </div>
+                    <button class="buy-btn" style="background: #25D366; color: white;">أوقف نزيف الضرائب <i class="fas fa-bolt"></i></button>
+                </div>
+            </a>
+
+            <a href="https://fathymontaser.gumroad.com/l/API" target="_blank" class="service-link reveal" onclick="trackEvent('Buy_API')">
+                <div class="service-card">
+                    <div class="discount-badge">خصم 50%</div>
+                    <i class="fab fa-whatsapp main-icon"></i>
+                    <h3>تأسيس WhatsApp API</h3>
+                    <p>ربط الواتساب الرسمي للأعمال بمحافظ موثقة لضمان تواصل آمن ومستقر مع عملائك.</p>
+                    <div class="price-box">
+                        <span class="old-price">$100</span>
+                        <span class="new-price">$50</span>
+                    </div>
+                    <button class="buy-btn">احجز العرض الآن <i class="fas fa-bolt"></i></button>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <div class="sales-toast" id="salesToast">
+        <div class="toast-img"><i class="fas fa-check"></i></div>
+        <div class="toast-text">
+            <p id="toastMsg">تم حجز الخدمة</p>
+            <span id="toastTime">منذ لحظات</span>
+        </div>
+    </div>
+
+    <a href="https://wa.me/201034479233" class="float-wa" target="_blank" onclick="trackEvent('Click_WhatsApp')">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // حركة الظهور
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 50) { reveals[i].classList.add("active"); }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+
+        // ==========================================
+        // العداد الذكي للمقاعد (شهرياً)
+        // ==========================================
+        function updateSmartScarcity() {
+            let now = new Date();
+            // استخدام توقيت مصر لضمان الدقة
+            let egyptTimeStr = now.toLocaleString("en-US", {timeZone: "Africa/Cairo"});
+            let egyptDate = new Date(egyptTimeStr);
+            let dayOfMonth = egyptDate.getDate(); // بيجيب رقم اليوم من 1 لـ 31
+
+            let bookedSeats = 2;
+            let percentage = 20;
+
+            // تقسيم الشهر لـ 4 مراحل (أسابيع)
+            if (dayOfMonth >= 22) {
+                bookedSeats = 8;
+                percentage = 80;
+            } else if (dayOfMonth >= 15) {
+                bookedSeats = 6;
+                percentage = 60;
+            } else if (dayOfMonth >= 8) {
+                bookedSeats = 4;
+                percentage = 40;
+            } else {
+                bookedSeats = 2;
+                percentage = 20; 
+            }
+
+            let totalSeats = 10; // العدد الإجمالي الوهمي للمقاعد
+            let remainingSeats = totalSeats - bookedSeats;
+
+            // تحديث النصوص في الصفحة
+            document.getElementById('bookedSeatsText').innerText = `⚠️ انتباه: تم حجز ${bookedSeats} مقاعد للمراجعة هذا الشهر`;
+            
+            // تحديث عرض الشريط الأحمر
+            document.getElementById('scarcityBar').style.width = percentage + '%';
+            
+            // تظبيط الجملة بناءً على العدد عشان اللغة العربية
+            if (remainingSeats === 2) {
+                document.getElementById('remainingSeatsText').innerText = `متبقي مقعدين فقط لاستقبال طلبات التوثيق والإعفاء الضريبي!`;
+            } else {
+                document.getElementById('remainingSeatsText').innerText = `متبقي ${remainingSeats} مقاعد فقط لاستقبال طلبات التوثيق والإعفاء الضريبي!`;
+            }
+        }
+        // تشغيل دالة المقاعد فوراً
+        updateSmartScarcity();
+
+        // ==========================================
+        // عداد العرض الأسبوعي (بتوقيت مصر)
+        // يعمل من الخميس الساعة 6 مساءً حتى الجمعة 11:59 مساءً
+        // ==========================================
+        function updateWeeklyTimer() {
+            let egyptTimeStr = new Date().toLocaleString("en-US", {timeZone: "Africa/Cairo"});
+            let now = new Date(egyptTimeStr);
+
+            let day = now.getDay(); 
+            let hour = now.getHours(); 
+
+            let topBar = document.getElementById('topBar');
+            let nav = document.getElementById('mainNav');
+
+            let isOfferActive = (day === 4 && hour >= 18) || (day === 5);
+
+            if (isOfferActive) {
+                topBar.style.display = 'flex';
+                
+                if (window.innerWidth <= 768) {
+                    nav.style.top = '65px'; 
+                } else {
+                    nav.style.top = '45px'; 
+                }
+
+                let endTime = new Date(now);
+                if (day === 4) {
+                    endTime.setDate(endTime.getDate() + 1); 
+                }
+                endTime.setHours(23, 59, 59, 999);
+
+                let timeLeft = Math.floor((endTime.getTime() - now.getTime()) / 1000);
+
+                let d = Math.floor(timeLeft / (24 * 3600));
+                let h = Math.floor((timeLeft % (24 * 3600)) / 3600);
+                let m = Math.floor((timeLeft % 3600) / 60);
+                let s = timeLeft % 60;
+
+                let displayHTML = "";
+                if (d > 0) {
+                    displayHTML += (d < 10 ? "0" + d : d) + " يوم و ";
+                }
+                displayHTML += (h < 10 ? "0" + h : h) + ":" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+
+                document.getElementById('countdown').innerHTML = displayHTML;
+            } else {
+                topBar.style.display = 'none';
+                nav.style.top = '0px'; 
+            }
+        }
+
+        updateWeeklyTimer();
+        setInterval(updateWeeklyTimer, 1000);
+        window.addEventListener('resize', updateWeeklyTimer);
+
+
+        // ==========================================
+        // نظام الإشعارات الذكي والمتباعد
+        // ==========================================
+        let notifications = [
+            "جمعية رعاية الأيتام بالرياض طلبت استخراج رقم D-U-N-S",
+            "شركة عقارية من دبي قامت بحجز الباقة الماسية للتأسيس",
+            "مؤسسة سقيا الماء بالكويت وثقت حساب Meta بنجاح",
+            "متجر إلكتروني من جدة فعل خدمة الإعفاء الضريبي للتو!",
+            "جمعية رعاية المعاقين بالدمام حجزت خدمة WhatsApp API",
+            "شركة تقنية من فلسطين طلبت توثيق مدير الأعمال الآن",
+            "مؤسسة خيرية من قطر حجزت مقعداً للمراجعة والاستشارة",
+            "شركة مقاولات من أبوظبي طلبت الإعفاء من الضرائب الإعلانية",
+            "جمعية تحفيظ القرآن بمكة قامت باستخراج الاعتماد الدولي",
+            "وكالة تسويق من البحرين حجزت باقة التأسيس الشاملة",
+            "شركة تجارية من سلطنة عمان فعلت الواتساب الرسمي للأعمال",
+            "مؤسسة طبية من الشارقة طلبت تأمين حساباتها من التقييد",
+            "جمعية إغاثة الملهوف بالمدينة المنورة وثقت كيانها الرقمي",
+            "شركة استيراد وتصدير من الكويت حجزت خدمة التوثيق المتقدم",
+            "متجر عطور من الرياض تخلص من ضريبة الـ 15% الإعلانية"
+        ];
+
+        let times = ["منذ 5 ثوانٍ", "منذ دقيقة", "منذ 3 دقائق", "الآن للتو!"];
+       
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        shuffleArray(notifications);
+       
+        const intervals = [120000, 120000, 150000, 180000, 210000];
+        let notificationIndex = 0;
+        let intervalIndex = 0;
+
+        function showSmartToast() {
+            const toast = document.getElementById('salesToast');
+            const randomTime = times[Math.floor(Math.random() * times.length)];
+
+            document.getElementById('toastMsg').innerText = notifications[notificationIndex];
+            document.getElementById('toastTime').innerText = randomTime;
+
+            toast.classList.add('show');
+            setTimeout(() => { toast.classList.remove('show'); }, 5000);
+
+            notificationIndex++;
+            if(notificationIndex >= notifications.length) {
+                shuffleArray(notifications);
+                notificationIndex = 0;
+            }
+
+            if(intervalIndex < intervals.length) {
+                let currentInterval = intervals[intervalIndex];
+                intervalIndex++;
+                setTimeout(showSmartToast, currentInterval);
+            } else {
+                setTimeout(showSmartToast, 240000);
+            }
+        }
+        setTimeout(showSmartToast, 120000);
+    </script>
+</body>
+</html>
