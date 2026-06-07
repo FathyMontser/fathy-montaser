@@ -226,8 +226,6 @@
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
        
-        .service-link { text-decoration: none; color: inherit; display: block; }
-        
         /* === كروت الخدمات (Hover Effects) === */
         .service-card {
             background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05);
@@ -253,16 +251,69 @@
         .old-price { text-decoration: line-through; color: #ff6666; font-size: 1.1rem; margin-left: 10px; }
         .new-price { color: var(--gold); font-size: 1.8rem; font-weight: 900; }
 
-        .buy-btn {
-            display: inline-block; background: var(--gold); color: var(--bg-dark);
-            padding: 12px 25px; border-radius: 30px; font-weight: 900; font-size: 1.2rem;
-            border: none; margin-top: auto; width: 100%; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+        /* =========================================
+           تصميم أزرار الإجراء المزدوجة (التحديث الجديد)
+           ========================================= */
+        .card-actions {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin-top: auto;
+            width: 100%;
+            align-items: stretch;
         }
-        .service-card:hover .buy-btn { 
-            transform: scale(1.03); 
-            background: #fff; 
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+        .btn-action {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 5px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            line-height: 1.3;
+        }
+        
+        /* زر الاستشارة (Calendly) */
+        .btn-consult {
+            background: transparent;
+            color: var(--cyan);
+            border: 1px solid var(--cyan);
+        }
+        .btn-consult:hover {
+            background: var(--cyan);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.2);
+        }
+
+        /* زر الشراء المباشر (Gumroad) */
+        .btn-buy {
+            background: var(--gold);
+            color: var(--bg-dark);
+            border: 1px solid var(--gold);
+        }
+        .btn-buy:hover {
+            background: #fff;
+            border-color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* استثناء لزر خدمة الضرائب (لون أخضر) */
+        .btn-buy.btn-green {
+            background: #25D366;
+            color: white;
+            border-color: #25D366;
+        }
+        .btn-buy.btn-green:hover {
+            background: #fff;
+            color: #25D366;
+            border-color: #fff;
         }
 
         /* =========================================
@@ -482,6 +533,10 @@
             .partners-grid { grid-template-columns: 1fr; }
             .integration-grid { grid-template-columns: repeat(4, 50px); }
             .icon-box { width: 50px; height: 50px; font-size: 1.6rem; }
+            
+            /* تعديل الأزرار على الشاشات الصغيرة جداً إن لزم الأمر */
+            .card-actions { gap: 5px; }
+            .btn-action { font-size: 0.85rem; padding: 8px 4px; }
         }
     </style>
 </head>
@@ -523,61 +578,89 @@
             <h2 class="section-title reveal">احجز خدمتك الآن قبل انتهاء العرض</h2>
             <div class="grid">
                
-                <a href="https://fathymontaser.gumroad.com/l/BMV" target="_blank" class="service-link reveal" onclick="trackEvent('Buy_Meta')" data-wa-hover-msg="هل تحتاج مساعدة في توثيق مدير أعمال Meta لشركتك؟ 👋" aria-label="احجز خدمة توثيق مدير أعمال Meta">
-                    <article class="service-card">
-                        <div class="discount-badge">خصم 50%</div>
-                        <i class="fas fa-shield-check main-icon" aria-hidden="true"></i>
-                        <h3>توثيق Meta</h3>
-                        <p>تأمين وتوثيق مدراء الأعمال للشركات بالعلامة التجارية الرسمية لضمان استقرار الحملات.</p>
-                        <div class="price-box">
-                            <span class="old-price">$100</span>
-                            <span class="new-price">$50</span>
-                        </div>
-                        <button class="buy-btn" tabindex="-1">احجز العرض الآن <i class="fas fa-bolt" aria-hidden="true"></i></button>
-                    </article>
-                </a>
+                <article class="service-card reveal" data-wa-hover-msg="هل تحتاج مساعدة في توثيق مدير أعمال Meta لشركتك؟ 👋">
+                    <div class="discount-badge">خصم 50%</div>
+                    <i class="fas fa-shield-check main-icon" aria-hidden="true"></i>
+                    <h3>توثيق Meta</h3>
+                    <p>تأمين وتوثيق مدراء الأعمال للشركات بالعلامة التجارية الرسمية لضمان استقرار الحملات.</p>
+                    <div class="price-box">
+                        <span class="old-price">$100</span>
+                        <span class="new-price">$50</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://calendly.com/verify-verifywith/15" target="_blank" class="btn-action btn-consult" onclick="trackEvent('Click_Calendly')" aria-label="احجز مكالمة استشارية لتوثيق Meta">
+                            <i class="fas fa-headset" aria-hidden="true" style="margin-bottom:3px;"></i>
+                            <span>استشارة مجانية<br><small style="font-size:0.75rem; font-weight:normal;">(15 دقيقة)</small></span>
+                        </a>
+                        <a href="https://fathymontaser.gumroad.com/l/BMV" target="_blank" class="btn-action btn-buy" onclick="trackEvent('Buy_Meta')" aria-label="اطلب خدمة توثيق Meta مباشرة">
+                            <i class="fas fa-bolt" aria-hidden="true" style="margin-bottom:3px;"></i>
+                            <span>اطلب الخدمة<br><small style="font-size:0.75rem; font-weight:normal;">مباشرة</small></span>
+                        </a>
+                    </div>
+                </article>
 
-                <a href="https://fathymontaser.gumroad.com/l/DUNS" target="_blank" class="service-link reveal" onclick="trackEvent('Buy_DUNS')" data-wa-hover-msg="هل لديك استفسار بخصوص استخراج رقم D-U-N-S؟ 👋" aria-label="احجز خدمة استخراج رقم D-U-N-S العالمي">
-                    <article class="service-card">
-                        <div class="discount-badge">خصم 50%</div>
-                        <i class="fas fa-globe main-icon" aria-hidden="true"></i>
-                        <h3>استخراج رقم D-U-N-S</h3>
-                        <p>إدارة الملفات وترجمتها لاستخراج الرقم العالمي الموحد لتأسيس الكيان الرقمي.</p>
-                        <div class="price-box">
-                            <span class="old-price">$100</span>
-                            <span class="new-price">$50</span>
-                        </div>
-                        <button class="buy-btn" tabindex="-1">احجز العرض الآن <i class="fas fa-bolt" aria-hidden="true"></i></button>
-                    </article>
-                </a>
+                <article class="service-card reveal" data-wa-hover-msg="هل لديك استفسار بخصوص استخراج رقم D-U-N-S؟ 👋">
+                    <div class="discount-badge">خصم 50%</div>
+                    <i class="fas fa-globe main-icon" aria-hidden="true"></i>
+                    <h3>استخراج رقم D-U-N-S</h3>
+                    <p>إدارة الملفات وترجمتها لاستخراج الرقم العالمي الموحد لتأسيس الكيان الرقمي.</p>
+                    <div class="price-box">
+                        <span class="old-price">$100</span>
+                        <span class="new-price">$50</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://calendly.com/verify-verifywith/15" target="_blank" class="btn-action btn-consult" onclick="trackEvent('Click_Calendly')" aria-label="احجز مكالمة استشارية لاستخراج DUNS">
+                            <i class="fas fa-headset" aria-hidden="true" style="margin-bottom:3px;"></i>
+                            <span>استشارة مجانية<br><small style="font-size:0.75rem; font-weight:normal;">(15 دقيقة)</small></span>
+                        </a>
+                        <a href="https://fathymontaser.gumroad.com/l/DUNS" target="_blank" class="btn-action btn-buy" onclick="trackEvent('Buy_DUNS')" aria-label="اطلب استخراج رقم DUNS مباشرة">
+                            <i class="fas fa-bolt" aria-hidden="true" style="margin-bottom:3px;"></i>
+                            <span>اطلب الخدمة<br><small style="font-size:0.75rem; font-weight:normal;">مباشرة</small></span>
+                        </a>
+                    </div>
+                </article>
 
-                <a href="https://fathymontaser.gumroad.com/l/ad" target="_blank" class="service-link reveal" onclick="trackEvent('Buy_Tax')" data-wa-hover-msg="هل تريد إيقاف نزيف الضرائب الإعلانية (15%)؟ تواصل معي 👋" aria-label="احجز خدمة إعفاء الضرائب الإعلانية للشركات">
-                    <article class="service-card">
-                        <div class="discount-badge">خصم 50%</div>
-                        <i class="fas fa-chart-line main-icon" style="color:#25D366;" aria-hidden="true"></i>
-                        <h3>إعفاء الضرائب الإعلانية</h3>
-                        <p>هيكلة قانونية لإزالة ضريبة (15%). ستسترد قيمة هذه الخدمة في أول شهر من إعلاناتك!</p>
-                        <div class="price-box">
-                            <span class="old-price">$100</span>
-                            <span class="new-price">$50</span>
-                        </div>
-                        <button class="buy-btn" style="background: #25D366; color: white;" tabindex="-1">أوقف نزيف الضرائب <i class="fas fa-bolt" aria-hidden="true"></i></button>
-                    </article>
-                </a>
+                <article class="service-card reveal" data-wa-hover-msg="هل تريد إيقاف نزيف الضرائب الإعلانية (15%)؟ تواصل معي 👋">
+                    <div class="discount-badge">خصم 50%</div>
+                    <i class="fas fa-chart-line main-icon" style="color:#25D366;" aria-hidden="true"></i>
+                    <h3>إعفاء الضرائب الإعلانية</h3>
+                    <p>هيكلة قانونية لإزالة ضريبة (15%). ستسترد قيمة هذه الخدمة في أول شهر من إعلاناتك!</p>
+                    <div class="price-box">
+                        <span class="old-price">$100</span>
+                        <span class="new-price">$50</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://calendly.com/verify-verifywith/15" target="_blank" class="btn-action btn-consult" onclick="trackEvent('Click_Calendly')" aria-label="احجز استشارة للإعفاء الضريبي">
+                            <i class="fas fa-headset" aria-hidden="true" style="margin-bottom:3px;"></i>
+                            <span>استشارة مجانية<br><small style="font-size:0.75rem; font-weight:normal;">(15 دقيقة)</small></span>
+                        </a>
+                        <a href="https://fathymontaser.gumroad.com/l/ad" target="_blank" class="btn-action btn-buy btn-green" onclick="trackEvent('Buy_Tax')" aria-label="اطلب خدمة الإعفاء الضريبي مباشرة">
+                            <i class="fas fa-bolt" aria-hidden="true" style="margin-bottom:3px;"></i>
+                            <span>اطلب الخدمة<br><small style="font-size:0.75rem; font-weight:normal;">مباشرة</small></span>
+                        </a>
+                    </div>
+                </article>
 
-                <a href="https://fathymontaser.gumroad.com/l/API" target="_blank" class="service-link reveal" onclick="trackEvent('Buy_API')" data-wa-hover-msg="هل تبحث عن تأسيس WhatsApp API وتوثيق رقمك؟ 👋" aria-label="احجز خدمة تأسيس وتوثيق WhatsApp API">
-                    <article class="service-card">
-                        <div class="discount-badge">خصم 50%</div>
-                        <i class="fab fa-whatsapp main-icon" aria-hidden="true"></i>
-                        <h3>تأسيس WhatsApp API</h3>
-                        <p>ربط الواتساب الرسمي للأعمال بمحافظ موثقة لضمان تواصل آمن ومستقر مع عملائك.</p>
-                        <div class="price-box">
-                            <span class="old-price">$50</span>
-                            <span class="new-price">$25</span>
-                        </div>
-                        <button class="buy-btn" tabindex="-1">احجز العرض الآن <i class="fas fa-bolt" aria-hidden="true"></i></button>
-                    </article>
-                </a>
+                <article class="service-card reveal" data-wa-hover-msg="هل تبحث عن تأسيس WhatsApp API وتوثيق رقمك؟ 👋">
+                    <div class="discount-badge">خصم 50%</div>
+                    <i class="fab fa-whatsapp main-icon" aria-hidden="true"></i>
+                    <h3>تأسيس WhatsApp API</h3>
+                    <p>ربط الواتساب الرسمي للأعمال بمحافظ موثقة لضمان تواصل آمن ومستقر مع عملائك.</p>
+                    <div class="price-box">
+                        <span class="old-price">$50</span>
+                        <span class="new-price">$25</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://calendly.com/verify-verifywith/15" target="_blank" class="btn-action btn-consult" onclick="trackEvent('Click_Calendly')" aria-label="احجز استشارة لتأسيس الواتساب">
+                            <i class="fas fa-headset" aria-hidden="true" style="margin-bottom:3px;"></i>
+                            <span>استشارة مجانية<br><small style="font-size:0.75rem; font-weight:normal;">(15 دقيقة)</small></span>
+                        </a>
+                        <a href="https://fathymontaser.gumroad.com/l/API" target="_blank" class="btn-action btn-buy" onclick="trackEvent('Buy_API')" aria-label="اطلب خدمة WhatsApp API مباشرة">
+                            <i class="fas fa-bolt" aria-hidden="true" style="margin-bottom:3px;"></i>
+                            <span>اطلب الخدمة<br><small style="font-size:0.75rem; font-weight:normal;">مباشرة</small></span>
+                        </a>
+                    </div>
+                </article>
 
             </div>
         </section>
@@ -816,7 +899,6 @@
         let activeSectionMsg = "مرحباً! كيف يمكنني مساعدة شركتك اليوم؟ 👋";
         let currentMsg = activeSectionMsg;
 
-        // دالة لتغيير النص بتأثير بصري ناعم
         function updateWaMessage(newMsg) {
             if (isWaTooltipClosed || currentMsg === newMsg) return;
             currentMsg = newMsg;
@@ -825,13 +907,12 @@
             setTimeout(() => {
                 waMessageText.innerText = newMsg;
                 waMessageText.style.opacity = '1';
-            }, 300); // 300ms تتوافق مع الـ transition في CSS
+            }, 300); 
         }
 
-        // 1. مراقبة الأقسام عند التمرير (Scroll Detection)
         const observerOptions = {
             root: null,
-            rootMargin: '-40% 0px -40% 0px', // يكتشف القسم عندما يكون في منتصف الشاشة تقريباً
+            rootMargin: '-40% 0px -40% 0px',
             threshold: 0
         };
 
@@ -851,18 +932,16 @@
             sectionObserver.observe(el);
         });
 
-        // 2. مراقبة وقوف الماوس على كروت الخدمات (Hover Detection) للكمبيوتر
-        document.querySelectorAll('.service-link[data-wa-hover-msg]').forEach(el => {
+        // تم تحديث الاستهداف هنا ليتوافق مع التصميم الجديد للكارت (.service-card)
+        document.querySelectorAll('.service-card[data-wa-hover-msg]').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 updateWaMessage(el.getAttribute('data-wa-hover-msg'));
             });
             el.addEventListener('mouseleave', () => {
-                // يعود لرسالة القسم الأساسية عند إبعاد الماوس
                 updateWaMessage(activeSectionMsg);
             });
         });
 
-        // إظهار الرسالة لأول مرة بعد 4 ثوانٍ
         setTimeout(function() {
             var waTooltip = document.getElementById('waTooltip');
             if(waTooltip && !isWaTooltipClosed) {
@@ -871,7 +950,6 @@
             }
         }, 4000);
 
-        // دالة إغلاق الرسالة واحترام قرار العميل
         function closeWaTooltip(event) {
             event.preventDefault(); 
             event.stopPropagation(); 
@@ -883,7 +961,6 @@
                 setTimeout(() => { waTooltip.style.display = 'none'; }, 600); 
             }
         }
-
     </script>
 </body>
 </html>
