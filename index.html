@@ -647,7 +647,6 @@
 
         /* =========================================
            القسم الجديد: شبكة شهادات العملاء المتمركزة 
-           تضمن التوزيع المتساوي لثلاثة كروت بعرض الشاشة
            ========================================= */
         .testimonials-section { 
             position: relative; 
@@ -657,7 +656,6 @@
 
         .testimonials-grid { 
             display: grid; 
-            /* تقسيم الشاشة لـ 3 أعمدة متساوية تماماً */
             grid-template-columns: repeat(3, 1fr); 
             gap: 30px; 
             max-width: 1200px; 
@@ -670,7 +668,6 @@
             backdrop-filter: blur(10px); 
             border: 1px solid rgba(212, 175, 55, 0.2); 
             border-radius: 20px; 
-            /* تكبير الهوامش الداخلية لتبدو الكروت مريحة وفخمة للعين */
             padding: 40px 25px; 
             transition: all 0.4s ease; 
             display: flex; 
@@ -909,7 +906,6 @@
         }
 
         @media (max-width: 992px) {
-            /* تنزيل الكروت تحت بعضها في الشاشات الصغيرة لتجنب الضيق */
             .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
         }
 
@@ -970,7 +966,6 @@
         <section class="section" data-wa-msg="هل لديك استفسار عن إحدى خدماتنا؟ تحدث معي مباشرة 👋">
             <h2 class="section-title reveal">احجز خدمتك الآن قبل انتهاء العرض</h2>
             <div class="grid">
-               
                 <article class="service-card reveal" data-wa-hover-msg="هل تحتاج مساعدة في توثيق مدير أعمال Meta لشركتك؟ 👋">
                     <div class="discount-badge">خصم 50%</div>
                     <i class="fas fa-shield-check main-icon" aria-hidden="true"></i>
@@ -1061,7 +1056,6 @@
         <section class="section" data-wa-msg="هل ترغب في الانضمام لقائمة شركاء النجاح؟ تحدث معي 👋">
             <h2 class="section-title reveal" style="color: #fff;">الاعتمادات وشركاء النجاح</h2>
             <div class="partners-grid reveal">
-                
                 <div class="partner-item">
                     <div class="partner-title">مرخصة من هيئة الاتصالات وتقنية المعلومات السعودية.</div>
                     <div class="partner-logo-box">
@@ -1178,7 +1172,7 @@
                         </div>
                     </div>
                     <audio class="audio-player" controls preload="none">
-                        <source src="https://drive.google.com/uc?export=download&id=1dlbQcRur8ADxU561pPU1_J4laxAGxdBa" type="audio/mpeg">
+                        <source src="1.mp3" type="audio/mpeg">
                         متصفحك لا يدعم تشغيل الصوت.
                     </audio>
                 </div>
@@ -1192,7 +1186,7 @@
                         </div>
                     </div>
                     <audio class="audio-player" controls preload="none">
-                        <source src="https://drive.google.com/uc?export=download&id=1Aq_PcmTMgn5IPEsYVQfZz3PDCZfiKOB8" type="audio/mpeg">
+                        <source src="2.MP3" type="audio/mpeg">
                         متصفحك لا يدعم تشغيل الصوت.
                     </audio>
                 </div>
@@ -1206,7 +1200,7 @@
                         </div>
                     </div>
                     <audio class="audio-player" controls preload="none">
-                        <source src="https://drive.google.com/uc?export=download&id=1JPWan7LGumf-Ynw90cO-DyovJIqSEROr" type="audio/mpeg">
+                        <source src="3.MP3" type="audio/mpeg">
                         متصفحك لا يدعم تشغيل الصوت.
                     </audio>
                 </div>
@@ -1250,7 +1244,7 @@
     </a>
 
     <script>
-        // حركة الظهور الانسيابية
+        // الأكواد الخاصة بالـ Javascript لم تتغير بناءً على طلبك
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -1265,7 +1259,6 @@
         window.addEventListener("scroll", reveal);
         reveal();
 
-        // العداد الذكي للمقاعد
         function updateSmartScarcity() {
             let now = new Date();
             let egyptTimeStr = now.toLocaleString("en-US", {timeZone: "Africa/Cairo"});
@@ -1304,7 +1297,6 @@
         
         updateSmartScarcity();
 
-        // عداد العرض الأسبوعي 
         function updateWeeklyTimer() {
             let egyptTimeStr = new Date().toLocaleString("en-US", {timeZone: "Africa/Cairo"});
             let now = new Date(egyptTimeStr);
@@ -1355,7 +1347,6 @@
         setInterval(updateWeeklyTimer, 1000);
         window.addEventListener('resize', updateWeeklyTimer);
 
-        // التحديث الذكي لرسالة الواتساب الديناميكية
         const waMessageText = document.querySelector('.wa-msg-text');
         let isWaTooltipClosed = false;
         let activeSectionMsg = "مرحباً! كيف يمكنني مساعدة شركتك اليوم؟ 👋";
@@ -1425,7 +1416,6 @@
             }
         }
 
-        // كود ذكي لإيقاف المقاطع الصوتية عند تشغيل مقطع آخر
         document.addEventListener('play', function(e) {
             var audios = document.getElementsByTagName('audio');
             for (var i = 0, len = audios.length; i < len; i++) {
