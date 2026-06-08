@@ -249,11 +249,34 @@
             transition: top 0.3s ease;
         }
 
-        nav .logo { 
+        /* =========== بداية التعديلات الهندسية الخاصة باللوجو =========== */
+        
+        /* حاوية اللوجو للحفاظ على التناسق والترتيب */
+        nav .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        /* تنسيق الصورة للحفاظ على الدقة وعدم البكسلة */
+        nav .site-logo {
+            height: 40px; /* الارتفاع المثالي للشريط العلوي */
+            width: auto; /* يحافظ على نسبة العرض للارتفاع تلقائياً */
+            object-fit: contain; /* يمنع تشوه الصورة */
+            image-rendering: high-quality; /* يجبر المتصفح على معالجة الصورة بأعلى دقة */
+            image-rendering: -webkit-optimize-contrast; /* دعم لمتصفحات كروم وسفاري لزيادة الحدة */
+            border-radius: 4px; /* لمسة جمالية بسيطة (اختياري) */
+        }
+
+        /* تنسيق النص المجاور للوجو (نفس التنسيق القديم الخاص بك) */
+        nav .logo-text { 
             font-size: 1.5rem; 
             font-weight: 900; 
             color: var(--gold); 
         }
+        
+        /* =========== نهاية التعديلات الهندسية الخاصة باللوجو =========== */
 
         nav .contact-btn {
             background: transparent; 
@@ -918,6 +941,10 @@
             .partners-grid { grid-template-columns: repeat(2, 1fr); }
             .integration-grid { grid-template-columns: repeat(6, 45px); gap: 10px; }
             .icon-box { width: 45px; height: 45px; font-size: 1.5rem; }
+            
+            /* تعديل استجابة اللوجو على الجوال */
+            nav .site-logo { height: 32px; }
+            nav .logo-text { font-size: 1.2rem; }
         }
 
         @media (max-width: 480px) {
@@ -937,7 +964,11 @@
     </div>
 
     <nav id="mainNav">
-        <div class="logo">م. فتحي منتصر</div>
+        <a href="#" class="logo-wrapper" aria-label="الصفحة الرئيسية">
+            <img src="verify-logo.jpg" alt="شعار م. فتحي منتصر - Verify" class="site-logo">
+            <span class="logo-text">م. فتحي منتصر</span>
+        </a>
+        
         <a href="https://www.linkedin.com/in/fathy-montaser" target="_blank" class="contact-btn" onclick="trackEvent('Click_LinkedIn')" aria-label="تواصل مع م. فتحي منتصر عبر لينكد إن">
             <i class="fab fa-linkedin" aria-hidden="true"></i> لينكد إن
         </a>
