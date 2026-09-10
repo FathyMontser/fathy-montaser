@@ -27,7 +27,8 @@
     <meta name="twitter:description" content="نحمي استثماراتك ونؤسس البنية التحتية الرقمية لشركتك بخطوات قانونية 100% مع ضمان استرداد الأموال.">
     <meta name="twitter:image" content="https://fathymontaser.online/profile-image.jpg">
 
-    <meta name="theme-color" content="#07130B">
+    <!-- تم تعديل لون الثيم ليتوافق مع الوضع الفاتح الساطع -->
+    <meta name="theme-color" content="#ffffff">
     
     <link rel="canonical" href="https://fathymontaser.online">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -172,14 +173,21 @@
     </script>
 
     <style>
+        /* المتغيرات الأساسية (التحول الكامل للون الأبيض والستايل الحديث) */
         :root {
-            --bg-dark: #07130B; 
-            --glass-bg: rgba(18, 43, 28, 0.6); 
-            --gold: #D4AF37; 
-            --primary-green: #25D366; 
+            --bg-light: #ffffff;
+            --bg-gradient: linear-gradient(135deg, #F0FFF4 0%, #FFFFFF 100%);
+            --glass-bg: rgba(255, 255, 255, 0.85); 
+            
+            --primary-brand: #128C7E; 
+            --whatsapp-green: #25D366; 
+            --text-dark: #1F2937; 
+            --text-gray: #4B5563; 
             --red-alert: #e60000;
-            --text-light: #E0F0E9; 
-            --text-gray: #94A89C;
+            --gold: #D4AF37;
+            
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 40px rgba(18, 140, 126, 0.15);
         }
 
         * { 
@@ -191,12 +199,9 @@
         }
 
         body {
-            background-color: var(--bg-dark); 
-            color: var(--text-light); 
+            background: var(--bg-gradient); 
+            color: var(--text-dark); 
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.05), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(37, 211, 102, 0.05), transparent 25%);
         }
 
         section {
@@ -212,8 +217,8 @@
         }
 
         .top-bar {
-            background: var(--gold); 
-            color: var(--bg-dark); 
+            background: var(--primary-brand); 
+            color: #ffffff; 
             text-align: center; 
             padding: 10px;
             font-weight: bold; 
@@ -222,7 +227,7 @@
             top: 0; 
             width: 100%; 
             z-index: 1001;
-            box-shadow: 0 2px 15px rgba(212, 175, 55, 0.4); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
             display: flex; 
             justify-content: center; 
             align-items: center; 
@@ -232,8 +237,8 @@
         }
 
         .timer-box { 
-            background: var(--bg-dark); 
-            color: var(--gold); 
+            background: #ffffff; 
+            color: var(--red-alert); 
             padding: 5px 15px; 
             border-radius: 5px; 
             font-family: 'Tajawal', monospace; 
@@ -243,7 +248,7 @@
         }
 
         @keyframes pulseRed { 
-            0% { box-shadow: 0 0 0 0 rgba(230,0,0,0.7); } 
+            0% { box-shadow: 0 0 0 0 rgba(230,0,0,0.3); } 
             70% { box-shadow: 0 0 0 10px rgba(230,0,0,0); } 
             100% { box-shadow: 0 0 0 0 rgba(230,0,0,0); } 
         }
@@ -251,14 +256,14 @@
         nav {
             position: fixed; 
             width: 100%; 
-            background: rgba(7, 19, 11, 0.9); 
+            background: rgba(255, 255, 255, 0.95); 
             backdrop-filter: blur(10px); 
             padding: 15px 5%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
             z-index: 1000; 
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05); 
             transition: top 0.3s ease;
         }
 
@@ -279,13 +284,13 @@
         nav .logo-text { 
             font-size: 1.5rem; 
             font-weight: 900; 
-            color: var(--gold); 
+            color: var(--primary-brand); 
         }
-
+        
         nav .contact-btn {
             background: transparent; 
-            border: 1px solid var(--gold); 
-            color: var(--gold);
+            border: 1px solid var(--primary-brand); 
+            color: var(--primary-brand);
             padding: 8px 20px; 
             border-radius: 20px; 
             text-decoration: none; 
@@ -294,8 +299,8 @@
         }
 
         nav .contact-btn:hover { 
-            background: var(--gold); 
-            color: var(--bg-dark); 
+            background: var(--primary-brand); 
+            color: #ffffff; 
         }
 
         .hero { 
@@ -310,7 +315,7 @@
 
         .hero .hero-subtitle { 
             font-size: 1.5rem; 
-            color: var(--primary-green); 
+            color: var(--primary-brand); 
             margin-bottom: 10px; 
             letter-spacing: 2px; 
             font-weight: 700; 
@@ -321,18 +326,19 @@
             font-size: 4rem; 
             font-weight: 900; 
             margin-bottom: 20px; 
-            background: linear-gradient(to left, #fff, var(--text-gray)); 
+            background: linear-gradient(to left, var(--text-dark), var(--primary-brand)); 
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
             line-height: 1.2;
         }
         
+        /* استعادة زر الإجراء الرئيسي */
         .hero-cta-btn {
             display: inline-flex; 
             align-items: center; 
             gap: 10px;
             background: var(--gold); 
-            color: var(--bg-dark);
+            color: #ffffff;
             padding: 15px 35px; 
             border-radius: 30px; 
             font-size: 1.2rem; 
@@ -346,8 +352,9 @@
 
         .hero-cta-btn:hover {
             transform: translateY(-5px); 
-            background: #fff; 
-            color: var(--bg-dark);
+            background: var(--primary-brand); 
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(18, 140, 126, 0.3);
         }
 
         @keyframes float {
@@ -355,9 +362,9 @@
             50% { transform: translateY(-4px); } 
             100% { transform: translateY(0px); }
         }
-       
+
         .scarcity-bar-container { 
-            background: rgba(255,255,255,0.1); 
+            background: rgba(0,0,0,0.05); 
             width: 100%; 
             max-width: 500px; 
             height: 15px; 
@@ -375,38 +382,39 @@
         }
 
         .scarcity-text { 
-            color: var(--gold); 
+            color: var(--primary-brand); 
             font-weight: bold; 
             font-size: 1.1rem; 
             margin-bottom: 40px; 
         }
 
         .guarantee-section { 
-            background: rgba(212, 175, 55, 0.05); 
-            border: 1px dashed var(--gold); 
+            background: #ffffff; 
+            border: 1px dashed var(--primary-brand); 
             border-radius: 15px; 
             padding: 40px; 
             text-align: center; 
             max-width: 800px; 
             margin: 60px auto; 
+            box-shadow: var(--shadow-soft);
         }
 
         .guarantee-section i { 
             font-size: 4rem; 
-            color: var(--gold); 
+            color: var(--primary-brand); 
             margin-bottom: 20px; 
         }
 
         .guarantee-section h2.guarantee-title { 
             font-size: 2rem; 
-            color: var(--gold); 
+            color: var(--primary-brand); 
             margin-bottom: 15px; 
         }
 
         .guarantee-section p { 
             font-size: 1.2rem; 
             line-height: 1.6; 
-            color: var(--text-light); 
+            color: var(--text-dark); 
         }
 
         .section { 
@@ -416,7 +424,7 @@
         .section-title { 
             text-align: center; 
             font-size: 2.5rem; 
-            color: var(--gold); 
+            color: var(--primary-brand); 
             margin-bottom: 60px; 
             font-weight: 900; 
         }
@@ -430,7 +438,7 @@
         .service-card {
             background: var(--glass-bg); 
             backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05); 
             padding: 40px 30px; 
             border-radius: 20px; 
             text-align: center; 
@@ -441,14 +449,16 @@
             display: flex; 
             flex-direction: column; 
             justify-content: space-between;
+            box-shadow: var(--shadow-soft); 
         }
 
         .service-card:hover { 
             transform: translateY(-12px); 
-            border-color: rgba(212, 175, 55, 0.6); 
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(212, 175, 55, 0.05); 
+            border-color: var(--primary-brand); 
+            box-shadow: var(--shadow-hover); 
         }
-
+        
+        /* استعادة تأثير العزل للبطاقة المميزة */
         .popular-card {
             border: 2px solid var(--gold); 
             transform: scale(1.05); 
@@ -466,7 +476,7 @@
             left: 50%; 
             transform: translateX(-50%);
             background: var(--gold); 
-            color: var(--bg-dark); 
+            color: #ffffff; 
             padding: 5px 25px;
             border-radius: 0 0 10px 10px; 
             font-weight: 900; 
@@ -484,26 +494,26 @@
             transform: rotate(45deg); 
             font-weight: bold; 
             font-size: 0.9rem; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3); 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
             z-index: 10;
         }
        
         .service-card i.main-icon { 
             font-size: 3.5rem; 
-            color: var(--gold); 
+            color: var(--primary-brand); 
             margin-bottom: 25px; 
             transition: all 0.5s; 
         }
 
         .service-card:hover i.main-icon { 
             transform: scale(1.1); 
-            color: var(--primary-green); 
+            color: var(--whatsapp-green); 
         }
 
         .service-card h3 { 
             font-size: 1.6rem; 
             margin-bottom: 15px; 
-            color: #fff; 
+            color: var(--text-dark); 
             font-weight: 800; 
         }
 
@@ -526,7 +536,7 @@
         }
 
         .new-price { 
-            color: var(--gold); 
+            color: var(--primary-brand); 
             font-size: 1.8rem; 
             font-weight: 900; 
         }
@@ -550,60 +560,61 @@
             font-size: 1rem;
             text-align: center; 
             text-decoration: none; 
-            transition: all 0.4s; 
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             line-height: 1.3;
         }
         
+        /* استعادة تأثير النبض لأزرار الشراء */
         @keyframes pulseBuyBtn {
-            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
             70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
             100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
 
         @keyframes pulseGreenBtn {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
             70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         .btn-buy { 
             background: var(--gold); 
-            color: var(--bg-dark); 
-            border: 2px solid var(--gold);
+            color: #ffffff; 
+            border: 1px solid var(--gold); 
             animation: pulseBuyBtn 2s infinite;
         }
 
         .btn-buy:hover { 
-            background: #fff; 
-            border-color: #fff; 
+            background: var(--primary-brand); 
+            border-color: var(--primary-brand); 
             transform: translateY(-3px); 
+            box-shadow: 0 5px 15px rgba(18, 140, 126, 0.3); 
         }
 
         .btn-buy.btn-green { 
-            background: var(--primary-green); 
+            background: var(--whatsapp-green); 
             color: white; 
-            border-color: var(--primary-green); 
+            border-color: var(--whatsapp-green); 
             animation: pulseGreenBtn 2s infinite;
         }
 
         .btn-buy.btn-green:hover { 
-            background: #fff; 
-            color: var(--primary-green); 
-            border-color: #fff; 
+            background: var(--whatsapp-hover); 
+            border-color: var(--whatsapp-hover);
+            transform: translateY(-3px); 
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
 
         .btn-consult { 
-            background: transparent; 
-            color: var(--text-light); 
-            border: 1px solid rgba(255,255,255,0.2); 
-            font-size: 0.9rem; 
-            padding: 8px;
+            background: #f8f9fa; 
+            color: var(--primary-brand); 
+            border: 1px solid #e2e8f0; 
         }
 
         .btn-consult:hover { 
-            background: rgba(255,255,255,0.1); 
-            color: #fff; 
-            border-color: #fff; 
+            background: var(--secondary-bg); 
+            color: var(--primary-brand); 
+            transform: translateY(-3px); 
         }
 
         .partners-grid { 
@@ -622,11 +633,12 @@
         }
 
         .partner-title { 
-            color: #fff; 
+            color: var(--text-dark); 
             font-size: 0.95rem; 
             font-weight: 700; 
             margin-bottom: 15px; 
             min-height: 45px; 
+            line-height: 1.5; 
             display: flex; 
             align-items: flex-end; 
             justify-content: center; 
@@ -641,26 +653,26 @@
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
-            transition: all 0.5s; 
+            box-shadow: var(--shadow-soft); 
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .partner-logo-box:hover { 
             transform: translateY(-8px); 
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2); 
+            box-shadow: var(--shadow-hover); 
         }
         
         .integration-wrapper {
-            background: var(--glass-bg); 
-            backdrop-filter: blur(15px); 
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #ffffff; 
+            border: 1px solid rgba(0, 0, 0, 0.05);
             border-radius: 30px; 
             padding: 60px; 
             display: flex; 
             align-items: center; 
             justify-content: space-between; 
             gap: 50px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+            box-shadow: var(--shadow-soft); 
             overflow: hidden;
         }
 
@@ -673,7 +685,7 @@
 
         .integration-content h2 { 
             font-size: 2.5rem; 
-            color: #fff; 
+            color: var(--primary-brand); 
             margin-bottom: 20px; 
             font-weight: 900; 
         }
@@ -688,8 +700,8 @@
         .integration-btn { 
             display: inline-block; 
             background: transparent; 
-            color: var(--primary-green); 
-            border: 2px solid var(--primary-green); 
+            color: var(--primary-brand); 
+            border: 2px solid var(--primary-brand); 
             padding: 12px 30px; 
             border-radius: 30px; 
             font-weight: bold; 
@@ -699,10 +711,11 @@
         }
 
         .integration-btn:hover { 
-            background: var(--primary-green); 
-            color: var(--bg-dark); 
+            background: var(--primary-brand); 
+            color: #ffffff; 
         }
         
+        /* استعادة الشريط المتحرك لقانون جيزالت */
         .marquee-container {
             flex: 1.5; 
             overflow: hidden; 
@@ -738,13 +751,16 @@
             align-items: center; 
             font-size: 2.2rem; 
             flex-shrink: 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
-            transition: all 0.4s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid #f0f0f0;
         }
 
         .icon-box:hover { 
-            transform: scale(1.15); 
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); 
+            transform: scale(1.15) rotate(3deg); 
+            box-shadow: 0 10px 20px rgba(18, 140, 126, 0.2); 
+            z-index: 2; 
+            position: relative;
         }
 
         .testimonials-section { 
@@ -763,21 +779,21 @@
         }
 
         .testimonial-card { 
-            background: var(--glass-bg); 
-            backdrop-filter: blur(10px); 
-            border: 1px solid rgba(212, 175, 55, 0.2); 
+            background: #ffffff; 
+            border: 1px solid rgba(0, 0, 0, 0.05); 
             border-radius: 20px; 
             padding: 40px 25px; 
             transition: all 0.4s ease; 
             display: flex; 
             flex-direction: column; 
             justify-content: space-between;
+            box-shadow: var(--shadow-soft);
         }
 
         .testimonial-card:hover { 
-            border-color: var(--gold); 
+            border-color: var(--primary-brand); 
             transform: translateY(-8px); 
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.1); 
+            box-shadow: var(--shadow-hover); 
         }
 
         .testimonial-header { 
@@ -791,14 +807,14 @@
             width: 65px; 
             height: 65px; 
             border-radius: 50%; 
-            background: #112b1a; 
+            background: #f0f0f0; 
             padding: 3px; 
-            border: 2px solid var(--gold); 
+            border: 2px solid var(--primary-brand); 
             object-fit: cover; 
         }
 
         .client-info h4 { 
-            color: #fff; 
+            color: var(--text-dark); 
             font-size: 1.1rem; 
             margin-bottom: 5px; 
             font-weight: 800; 
@@ -810,6 +826,7 @@
             line-height: 1.4; 
         }
         
+        /* استعادة الدليل الاجتماعي للعملاء */
         .social-proof-stars { 
             color: var(--gold); 
             font-size: 0.85rem; 
@@ -817,7 +834,7 @@
         }
 
         .social-proof-quote { 
-            color: #fff; 
+            color: var(--text-dark); 
             font-weight: bold; 
             font-size: 1rem; 
             margin-bottom: 15px; 
@@ -829,7 +846,11 @@
             height: 45px; 
             border-radius: 30px; 
             outline: none; 
-            filter: sepia(15%) hue-rotate(90deg) brightness(85%) contrast(110%);
+            /* لا حاجة للفلتر في الوضع الفاتح */
+        }
+
+        .audio-player::-webkit-media-controls-panel { 
+            background-color: #f1f5f9; 
         }
 
         .faq-container { 
@@ -837,25 +858,25 @@
             margin: 0 auto; 
         }
 
-        .faq-item { 
-            background: var(--glass-bg); 
+        .faq-item {
+            background: #ffffff; 
             margin-bottom: 15px; 
             padding: 20px; 
-            border-radius: 15px; 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.05); 
             cursor: pointer; 
-            transition: all 0.3s; 
-            transform: translateX(0); 
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
         
         .faq-item:hover { 
-            border-color: var(--gold); 
+            border-color: var(--primary-brand); 
             transform: translateX(-5px); 
         }
         
         .faq-item summary { 
             font-weight: 800; 
-            color: #fff; 
+            color: var(--text-dark); 
             font-size: 1.2rem; 
             outline: none; 
             list-style: none; 
@@ -867,7 +888,7 @@
             content: "+"; 
             position: absolute; 
             right: 0; 
-            color: var(--gold); 
+            color: var(--primary-brand); 
             font-weight: bold; 
             font-size: 1.5rem; 
             line-height: 1; 
@@ -882,7 +903,7 @@
             color: var(--text-gray); 
             line-height: 1.7; 
             font-size: 1.1rem; 
-            border-top: 1px dashed rgba(255,255,255,0.1); 
+            border-top: 1px dashed #e2e8f0; 
             padding-top: 15px; 
         }
 
@@ -890,7 +911,7 @@
             position: fixed; 
             bottom: 30px; 
             right: 30px; 
-            background-color: var(--primary-green); 
+            background-color: var(--whatsapp-green); 
             color: white; 
             width: 60px; 
             height: 60px; 
@@ -914,7 +935,7 @@
             bottom: 45px; 
             right: 105px; 
             background: #ffffff; 
-            color: var(--bg-dark); 
+            color: var(--text-dark); 
             padding: 12px 18px; 
             border-radius: 20px 20px 0 20px; 
             font-size: 0.95rem; 
@@ -962,7 +983,7 @@
         .green-dot { 
             width: 10px; 
             height: 10px; 
-            background-color: var(--primary-green); 
+            background-color: var(--whatsapp-green); 
             border-radius: 50%; 
             display: inline-block; 
             flex-shrink: 0; 
@@ -1066,21 +1087,23 @@
             </div>
             <div id="remainingSeatsText" class="scarcity-text">جاري الحساب...</div>
 
-            <p>نحمي استثماراتك ونؤسس البنية التحتية الرقمية لشركتك في السعودية بخطوات قانونية 100%.</p>
+            <p style="color: var(--text-gray);">نحمي استثماراتك ونؤسس البنية التحتية الرقمية لشركتك في السعودية بخطوات قانونية 100%.</p>
             
+            <!-- استعادة زر الهيرو -->
             <a href="#servicesGrid" class="hero-cta-btn">تصفح الخدمات والأسعار <i class="fas fa-arrow-down"></i></a>
         </section>
 
         <section class="guarantee-section reveal">
             <i class="fas fa-shield-alt" aria-hidden="true"></i>
             <h2 class="guarantee-title">الضمان الذهبي 100%</h2>
-            <p>أنا لا أبيع لك خدمة، بل أبيع لك "النتيجة". جميع خدمات التوثيق واستخراج الاعتمادات الدولية والإعفاء الضريبي مضمونة تماماً. <b>إذا لم يتم تنفيذ الخدمة كما هو متفق عليه، تسترد مبلغك بالكامل فوراً ودون أي أسئلة.</b> قرارك الآن خالي من أي مخاطرة!</p>
+            <p>أنا لا أبيع لك خدمة، بل أبيع لك "النتيجة". جميع خدمات التوثيق واستخراج الاعتمادات الدولية والإعفاء الضريبي مضمونة تماماً. <b style="color: var(--primary-brand);">إذا لم يتم تنفيذ الخدمة كما هو متفق عليه، تسترد مبلغك بالكامل فوراً ودون أي أسئلة.</b> قرارك الآن خالي من أي مخاطرة!</p>
         </section>
 
         <section class="section" id="servicesGrid" data-wa-msg="هل لديك استفسار عن إحدى خدماتنا؟ تحدث معي مباشرة 👋">
             <h2 class="section-title reveal">احجز خدمتك الآن قبل انتهاء العرض</h2>
             <div class="grid">
                 
+                <!-- استعادة تأثير العزل للخدمة الأهم -->
                 <article class="service-card popular-card reveal" data-wa-hover-msg="هل تحتاج مساعدة في توثيق مدير أعمال Meta لشركتك؟ 👋">
                     <div class="popular-badge-top">🔥 الأكثر طلباً</div>
                     <div class="discount-badge">خصم 50%</div>
@@ -1162,7 +1185,7 @@
         </section>
 
         <section class="section" data-wa-msg="هل ترغب في الانضمام لقائمة شركاء النجاح؟ تحدث معي 👋">
-            <h2 class="section-title reveal" style="color: #fff;">الاعتمادات وشركاء النجاح</h2>
+            <h2 class="section-title reveal">الاعتمادات وشركاء النجاح</h2>
             <div class="partners-grid reveal">
                 <div class="partner-item">
                     <div class="partner-title">مرخصة من هيئة الاتصالات وتقنية المعلومات السعودية.</div>
@@ -1180,7 +1203,7 @@
                 <div class="partner-item">
                     <div class="partner-title">حاصلة على شهادة 27001 ISO.</div>
                     <div class="partner-logo-box">
-                        <div style="border: 3px solid var(--primary-green); border-radius: 50%; width: 70px; height: 70px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--primary-green); font-family: Arial, sans-serif;" aria-hidden="true">
+                        <div style="border: 3px solid var(--primary-brand); border-radius: 50%; width: 70px; height: 70px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--primary-brand); font-family: Arial, sans-serif;" aria-hidden="true">
                             <span style="font-size: 0.75rem; font-weight: bold; margin-bottom: -4px;">ISO</span>
                             <span style="font-size: 1.2rem; font-weight: 900;">27001</span>
                             <span style="font-size: 0.45rem; font-weight: bold; margin-top: -2px;">CERTIFIED</span>
@@ -1241,6 +1264,7 @@
                     <a href="https://wa.me/201034479233" target="_blank" rel="noopener noreferrer" class="integration-btn" aria-label="تواصل معنا لاكتشاف عمليات التكامل المتاحة عبر الواتساب">اكتشف عمليات التكامل المتاحة <i class="fas fa-arrow-left" style="margin-right: 5px;" aria-hidden="true"></i></a>
                 </div>
                 
+                <!-- استعادة الشريط المتحرك اللا نهائي -->
                 <div class="marquee-container">
                     <div class="marquee-content">
                         <div class="icon-box" title="WooCommerce"><div style="background: #96588a; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 10px; font-family: Arial, sans-serif;">woo</div></div>
@@ -1262,7 +1286,7 @@
                         <div class="icon-box" title="Intercom"><i class="fas fa-smile" style="color: #1ca4ff; font-size: 1.8rem;"></i></div>
                         <div class="icon-box" title="Slack"><i class="fab fa-slack" style="color: #E01E5A; font-size: 1.8rem;"></i></div>
                         
-                        <!-- مجموعة مكررة لضمان استمرارية شريط التمرير (Marquee) -->
+                        <!-- مجموعة مكررة لضمان استمرارية شريط التمرير -->
                         <div class="icon-box" title="WooCommerce"><div style="background: #96588a; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 10px; font-family: Arial, sans-serif;">woo</div></div>
                         <div class="icon-box" title="Mailchimp"><div style="background: #ffe01b; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-mailchimp" style="color: #000; font-size: 1.2rem;"></i></div></div>
                         <div class="icon-box" title="Microsoft Dynamics"><span style="color: #002050; font-weight: 900; font-size: 1.5rem; font-family: Arial, sans-serif;">D</span></div>
@@ -1287,6 +1311,7 @@
                             <p>عميل متميز، المملكة العربية السعودية</p>
                         </div>
                     </div>
+                    <!-- استعادة الدليل الاجتماعي -->
                     <div class="social-proof-stars">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
@@ -1306,6 +1331,7 @@
                             <p>عميل متميز، المملكة العربية السعودية</p>
                         </div>
                     </div>
+                    <!-- استعادة الدليل الاجتماعي -->
                     <div class="social-proof-stars">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
@@ -1325,6 +1351,7 @@
                             <p>عميل متميز، المملكة العربية السعودية</p>
                         </div>
                     </div>
+                    <!-- استعادة الدليل الاجتماعي -->
                     <div class="social-proof-stars">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
