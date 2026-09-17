@@ -27,7 +27,6 @@
     <meta name="twitter:description" content="نحمي استثماراتك ونؤسس البنية التحتية الرقمية لشركتك بخطوات قانونية 100% مع ضمان استرداد الأموال.">
     <meta name="twitter:image" content="https://fathymontaser.online/profile-image.jpg">
 
-    <!-- تم تعديل لون الثيم ليتوافق مع الوضع الفاتح الساطع -->
     <meta name="theme-color" content="#ffffff">
     
     <link rel="canonical" href="https://fathymontaser.online">
@@ -118,7 +117,7 @@
           "@type": "Offer",
           "price": "50",
           "priceCurrency": "USD",
-          "url": "https://fathymontaser.gumroad.com/l/BMV"
+          "url": "https://getduns.gumroad.com/l/BMV"
         }
       },
       {
@@ -134,7 +133,7 @@
           "@type": "Offer",
           "price": "50",
           "priceCurrency": "USD",
-          "url": "https://fathymontaser.gumroad.com/l/DUNS"
+          "url": "https://getduns.gumroad.com/l/DUNS"
         }
       },
       {
@@ -150,7 +149,7 @@
           "@type": "Offer",
           "price": "50",
           "priceCurrency": "USD",
-          "url": "https://fathymontaser.gumroad.com/l/ad"
+          "url": "https://getduns.gumroad.com/l/ad"
         }
       },
       {
@@ -166,13 +165,14 @@
           "@type": "Offer",
           "price": "25",
           "priceCurrency": "USD",
-          "url": "https://fathymontaser.gumroad.com/l/API"
+          "url": "https://getduns.gumroad.com/l/API"
         }
       }
     ]
     </script>
 
     <style>
+        /* المتغيرات الأساسية */
         :root {
             --bg-light: #ffffff;
             --bg-gradient: linear-gradient(135deg, #F0FFF4 0%, #FFFFFF 100%);
@@ -386,34 +386,136 @@
             margin-bottom: 40px; 
         }
 
-        .guarantee-section { 
+        /* =========================================
+           تنسيقات قسم الضمان الذهبي (المتطابق مع الصورة ومندمج مع الموقع)
+           ========================================= */
+
+        .premium-guarantee-section {
             background: #ffffff; 
-            border: 1px dashed var(--primary-brand); 
-            border-radius: 15px; 
-            padding: 40px; 
-            text-align: center; 
-            max-width: 800px; 
-            margin: 60px auto; 
-            box-shadow: var(--shadow-soft);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            max-width: 850px;
+            margin: 60px auto;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06); 
+            border: 1px solid rgba(18, 140, 126, 0.15); 
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease;
         }
 
-        .guarantee-section i { 
-            font-size: 4rem; 
+        .premium-guarantee-section:hover {
+            transform: translateY(-5px);
+        }
+
+        /* هندسة الأيقونة لتتطابق مع الصورة (شريط وسام مع علامة صح) */
+        .award-icon-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+            transition: transform 0.4s;
+        }
+        .premium-guarantee-section:hover .award-icon-container {
+            transform: scale(1.08);
+        }
+        
+        /* الوسام الأساسي (الأخضر) */
+        .base-award {
+            font-size: 5rem; 
             color: var(--primary-brand); 
-            margin-bottom: 20px; 
+            line-height: 1; /* منع أي تباعد إضافي يؤثر على الحسابات الهندسية */
+        }
+        
+        /* علامة الصح الداخلية (الذهبية والمتمركزة بدقة تامة) */
+        .inner-check {
+            position: absolute;
+            top: 32%; /* النسبة الدقيقة لمنتصف الدائرة العلوية في أيقونة الوسام */
+            left: 55%;
+            transform: translate(-50%, -50%);
+            font-size: 2.3rem; /* تكبير علامة الصح لتكون بارزة جداً وملفتة للعين */
+            color: var(--gold); /* اللون الذهبي الصريح */
+            font-weight: 900; 
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* ظل لرفع الأيقونة بصرياً عن الخلفية */
+            z-index: 2; /* ضمان ظهورها فوق الوسام دائماً */
         }
 
-        .guarantee-section h2.guarantee-title { 
-            font-size: 2rem; 
-            color: var(--primary-brand); 
-            margin-bottom: 15px; 
+        /* بناء الخطوط الأفقية المزدوجة المتطابقة 100% مع الصورة */
+        .guarantee-separator-top,
+        .guarantee-separator-bottom {
+            width: 75%;
+            margin: 0 auto;
+            height: 6px; 
+        }
+        .guarantee-separator-top {
+            margin-bottom: 15px;
+            border-top: 1px solid rgba(31, 41, 55, 0.2); 
+            border-bottom: 3px solid var(--text-dark);  
+        }
+        .guarantee-separator-bottom {
+            margin-top: 15px;
+            margin-bottom: 20px;
+            border-top: 3px solid var(--text-dark); 
+            border-bottom: 1px solid rgba(31, 41, 55, 0.2); 
         }
 
-        .guarantee-section p { 
-            font-size: 1.2rem; 
-            line-height: 1.6; 
+        /* تنسيق كلمة "ضمان 100%" */
+        .guarantee-title-new {
+            font-size: 4rem;
+            color: var(--gold); 
+            font-weight: 900;
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        /* تنسيق جملة "اعرف كيف نضمن حقوقك" */
+        .guarantee-subtitle {
+            font-size: 1.6rem;
             color: var(--text-dark); 
+            margin-bottom: 15px;
+            font-weight: 800;
         }
+
+        /* تنسيق النجوم الذهبية */
+        .guarantee-stars {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 35px;
+            letter-spacing: 10px; 
+        }
+
+        /* النص العربي التعريفي للضمان */
+        .guarantee-content p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-gray); 
+            background: #f8f9fa; 
+            padding: 25px;
+            border-radius: 12px;
+            border-right: 4px solid var(--primary-brand); 
+            margin: 0;
+        }
+
+        /* تمييز الجملة الهامة داخل النص لتلفت انتباه العميل */
+        .highlight-text {
+            color: var(--primary-brand); 
+            font-weight: 900;
+            background: rgba(18, 140, 126, 0.08); 
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+
+        /* تجاوب التصميم مع الجوالات */
+        @media (max-width: 768px) {
+            .guarantee-title-new { font-size: 2.8rem; }
+            .guarantee-subtitle { font-size: 1.3rem; }
+            .guarantee-separator-top,
+            .guarantee-separator-bottom { width: 90%; }
+            .premium-guarantee-section { padding: 40px 20px; }
+            .base-award { font-size: 4.2rem; }
+            .inner-check { font-size: 1.9rem; top: 26%; }
+        }
+
+        /* ========================================= */
 
         .section { 
             padding: 80px 5%; 
@@ -820,6 +922,7 @@
         
         .verified-icon {
             flex-shrink: 0; 
+            margin-top: 2px;
             vertical-align: middle;
         }
 
@@ -1048,6 +1151,9 @@
             .wa-tooltip { right: 85px; bottom: 25px; padding: 10px 15px; font-size: 0.9rem;}
             .wa-tooltip::after { bottom: 12px; }
             .partners-grid { grid-template-columns: repeat(2, 1fr); }
+            .integration-grid { grid-template-columns: repeat(6, 45px); gap: 10px; }
+            .icon-box { width: 45px; height: 45px; font-size: 1.5rem; }
+            
             nav .site-logo { height: 32px; }
             nav .logo-text { font-size: 1.2rem; }
         }
@@ -1072,7 +1178,7 @@
             <span class="logo-text">م. فتحي منتصر</span>
         </a>
         
-        <a href="https://www.linkedin.com/in/fathy-montaser" target="_blank" rel="noopener noreferrer" class="contact-btn" onclick="trackEvent('Click_LinkedIn')" aria-label="تواصل مع م. فتحي منتصر عبر لينكد إن">
+        <a href="https://www.linkedin.com/in/getduns" target="_blank" rel="noopener noreferrer" class="contact-btn" onclick="trackEvent('Click_LinkedIn')" aria-label="تواصل مع م. فتحي منتصر عبر لينكد إن">
             <i class="fab fa-linkedin" aria-hidden="true"></i> لينكد إن
         </a>
     </nav>
@@ -1093,11 +1199,44 @@
             <a href="#servicesGrid" class="hero-cta-btn">تصفح الخدمات والأسعار <i class="fas fa-arrow-down"></i></a>
         </section>
 
-        <section class="guarantee-section reveal">
-            <i class="fas fa-shield-alt" aria-hidden="true"></i>
-            <h2 class="guarantee-title">الضمان الذهبي 100%</h2>
-            <p>أنا لا أبيع لك خدمة، بل أبيع لك "النتيجة". جميع خدمات التوثيق واستخراج الاعتمادات الدولية والإعفاء الضريبي مضمونة تماماً. <b style="color: var(--primary-brand);">إذا لم يتم تنفيذ الخدمة كما هو متفق عليه، تسترد مبلغك بالكامل فوراً ودون أي أسئلة.</b> قرارك الآن خالي من أي مخاطرة!</p>
+        <!-- بداية قسم الضمان الذهبي الاحترافي الجديد والمندمج مع الموقع -->
+        <section class="premium-guarantee-section reveal">
+            <div class="guarantee-header">
+                
+                <!-- الأيقونة المتطابقة مع الصورة (وسام وعلامة صح) -->
+                <div class="award-icon-container">
+                    <i class="fas fa-award base-award" aria-hidden="true"></i>
+                    <i class="fas fa-check inner-check" aria-hidden="true"></i>
+                </div>
+                
+                <!-- خطوط الزينة العلوية المزدوجة المتطابقة مع الصورة -->
+                <div class="guarantee-separator-top"></div>
+                
+                <!-- كلمة الضمان -->
+                <h2 class="guarantee-title-new">ضمان 100%</h2>
+                
+                <!-- خطوط الزينة السفلية المزدوجة المتطابقة مع الصورة -->
+                <div class="guarantee-separator-bottom"></div>
+                
+                <!-- العنوان الفرعي -->
+                <h3 class="guarantee-subtitle">اعرف كيف نضمن حقوقك</h3>
+                
+                <!-- النجوم الخمسة -->
+                <div class="guarantee-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+
+            <!-- النص الأصلي للضمان مع ألوان الموقع الأصلية -->
+            <div class="guarantee-content">
+                <p>أنا لا أبيع لك خدمة، بل أبيع لك "النتيجة". جميع خدمات التوثيق واستخراج الاعتمادات الدولية والإعفاء الضريبي مضمونة تماماً. <b class="highlight-text">إذا لم يتم تنفيذ الخدمة كما هو متفق عليه، تسترد مبلغك بالكامل فوراً ودون أي أسئلة.</b> قرارك الآن خالي من أي مخاطرة!</p>
+            </div>
         </section>
+        <!-- نهاية قسم الضمان الذهبي -->
 
         <section class="section" id="servicesGrid" data-wa-msg="هل لديك استفسار عن إحدى خدماتنا؟ تحدث معي مباشرة 👋">
             <h2 class="section-title reveal">احجز خدمتك الآن قبل انتهاء العرض</h2>
@@ -1114,7 +1253,7 @@
                         <span class="new-price">$50</span>
                     </div>
                     <div class="card-actions">
-                        <a href="https://fathymontaser.gumroad.com/l/BMV" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy" onclick="trackEvent('Buy_Meta')" aria-label="اطلب خدمة توثيق Meta مباشرة">
+                        <a href="https://getduns.gumroad.com/l/BMV" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy" onclick="trackEvent('Buy_Meta')" aria-label="اطلب خدمة توثيق Meta مباشرة">
                             <i class="fas fa-bolt" aria-hidden="true"></i> اطلب الخدمة مباشرة
                         </a>
                         <a href="https://calendly.com/verify-verifywith/15" target="_blank" rel="noopener noreferrer" class="btn-action btn-consult" onclick="trackEvent('Click_Calendly')" aria-label="احجز مكالمة استشارية لتوثيق Meta">
@@ -1133,7 +1272,7 @@
                         <span class="new-price">$50</span>
                     </div>
                     <div class="card-actions">
-                        <a href="https://fathymontaser.gumroad.com/l/DUNS" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy" onclick="trackEvent('Buy_DUNS')" aria-label="اطلب استخراج رقم DUNS مباشرة">
+                        <a href="https://getduns.gumroad.com/l/DUNS" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy" onclick="trackEvent('Buy_DUNS')" aria-label="اطلب استخراج رقم DUNS مباشرة">
                             <i class="fas fa-bolt" aria-hidden="true"></i> اطلب الخدمة مباشرة
                         </a>
                         <a href="https://calendly.com/verify-verifywith/15" target="_blank" rel="noopener noreferrer" class="btn-action btn-consult" onclick="trackEvent('Click_Calendly')" aria-label="احجز مكالمة استشارية لاستخراج DUNS">
@@ -1152,7 +1291,7 @@
                         <span class="new-price">$50</span>
                     </div>
                     <div class="card-actions">
-                        <a href="https://fathymontaser.gumroad.com/l/ad" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy btn-green" onclick="trackEvent('Buy_Tax')" aria-label="اطلب خدمة الإعفاء الضريبي مباشرة">
+                        <a href="https://getduns.gumroad.com/l/ad" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy btn-green" onclick="trackEvent('Buy_Tax')" aria-label="اطلب خدمة الإعفاء الضريبي مباشرة">
                             <i class="fas fa-bolt" aria-hidden="true"></i> اطلب الخدمة مباشرة
                         </a>
                         <a href="https://calendly.com/verify-verifywith/15" target="_blank" rel="noopener noreferrer" class="btn-action btn-consult" onclick="trackEvent('Click_Calendly')" aria-label="احجز استشارة للإعفاء الضريبي">
@@ -1171,7 +1310,7 @@
                         <span class="new-price">$25</span>
                     </div>
                     <div class="card-actions">
-                        <a href="https://fathymontaser.gumroad.com/l/API" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy" onclick="trackEvent('Buy_API')" aria-label="اطلب خدمة WhatsApp API مباشرة">
+                        <a href="https://getduns.gumroad.com/l/API" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy" onclick="trackEvent('Buy_API')" aria-label="اطلب خدمة WhatsApp API مباشرة">
                             <i class="fas fa-bolt" aria-hidden="true"></i> اطلب الخدمة مباشرة
                         </a>
                         <a href="https://calendly.com/verify-verifywith/15" target="_blank" rel="noopener noreferrer" class="btn-action btn-consult" onclick="trackEvent('Click_Calendly')" aria-label="احجز استشارة لتأسيس الواتساب">
