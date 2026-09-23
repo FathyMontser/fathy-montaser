@@ -386,104 +386,6 @@
             margin-bottom: 40px; 
         }
 
-        /* تنسيقات قسم الخدمات المدمج حديثاً */
-        .services-wrapper {
-            max-width: 1200px;
-            margin: 0 auto 60px;
-            min-height: 300px; 
-            overflow: hidden; 
-            padding: 0 5%;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 2rem; 
-        }
-
-        .feat-card {
-            background-color: #ffffff;
-            border-radius: 20px;
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0,0,0,0.03); 
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative; 
-            will-change: transform, opacity; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .feat-card:hover {
-            transform: translateY(-8px); 
-            box-shadow: 0 15px 40px rgba(18, 140, 126, 0.1); 
-            border-color: rgba(18, 140, 126, 0.2);
-        }
-
-        .feat-icon-wrap {
-            width: 5rem;
-            height: 5rem;
-            background-color: #e8f5e9;
-            color: #128c7e;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .feat-card:hover .feat-icon-wrap {
-            transform: scale(1.1);
-        }
-
-        .feat-icon-wrap i {
-            font-size: 2.5rem; 
-        }
-
-        .feat-title {
-            color: #1c2b33;
-            font-size: 1.25rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .feat-desc {
-            font-size: 0.95rem;
-            color: #555555;
-            line-height: 1.6;
-        }
-
-        .services-wrapper.is-visible .feat-card {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .services-wrapper.is-visible .feat-card:nth-child(1) { transition-delay: 0.1s; }
-        .services-wrapper.is-visible .feat-card:nth-child(2) { transition-delay: 0.2s; }
-        .services-wrapper.is-visible .feat-card:nth-child(3) { transition-delay: 0.3s; }
-        .services-wrapper.is-visible .feat-card:nth-child(4) { transition-delay: 0.4s; }
-        .services-wrapper.is-visible .feat-card:nth-child(5) { transition-delay: 0.5s; }
-        .services-wrapper.is-visible .feat-card:nth-child(6) { transition-delay: 0.6s; }
-        .services-wrapper.is-visible .service-card:nth-child(7) { transition-delay: 0.7s; }
-        .services-wrapper.is-visible .service-card:nth-child(8) { transition-delay: 0.8s; }
-
-        @media (max-width: 1100px) {
-            .services-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        @media (max-width: 768px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 480px) {
-            .services-grid { grid-template-columns: 1fr; }
-        }
-
         /* =========================================
            تنسيقات قسم الضمان الذهبي (المتطابق مع الصورة ومندمج مع الموقع)
            ========================================= */
@@ -506,6 +408,7 @@
             transform: translateY(-5px);
         }
 
+        /* هندسة الأيقونة لتتطابق مع الصورة (شريط وسام مع علامة صح) */
         .award-icon-container {
             position: relative;
             display: inline-block;
@@ -516,24 +419,27 @@
             transform: scale(1.08);
         }
         
+        /* الوسام الأساسي (الأخضر) */
         .base-award {
             font-size: 5rem; 
             color: var(--primary-brand); 
-            line-height: 1; 
+            line-height: 1; /* منع أي تباعد إضافي يؤثر على الحسابات الهندسية */
         }
         
+        /* علامة الصح الداخلية (الذهبية والمتمركزة بدقة تامة) */
         .inner-check {
             position: absolute;
-            top: 32%; 
+            top: 32%; /* النسبة الدقيقة لمنتصف الدائرة العلوية في أيقونة الوسام */
             left: 55%;
             transform: translate(-50%, -50%);
-            font-size: 2.3rem; 
-            color: var(--gold); 
+            font-size: 2.3rem; /* تكبير علامة الصح لتكون بارزة جداً وملفتة للعين */
+            color: var(--gold); /* اللون الذهبي الصريح */
             font-weight: 900; 
-            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
-            z-index: 2; 
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* ظل لرفع الأيقونة بصرياً عن الخلفية */
+            z-index: 2; /* ضمان ظهورها فوق الوسام دائماً */
         }
 
+        /* بناء الخطوط الأفقية المزدوجة المتطابقة 100% مع الصورة */
         .guarantee-separator-top,
         .guarantee-separator-bottom {
             width: 75%;
@@ -552,6 +458,7 @@
             border-bottom: 1px solid rgba(31, 41, 55, 0.2); 
         }
 
+        /* تنسيق كلمة "ضمان 100%" */
         .guarantee-title-new {
             font-size: 4rem;
             color: var(--gold); 
@@ -560,6 +467,7 @@
             line-height: 1.1;
         }
 
+        /* تنسيق جملة "اعرف كيف نضمن حقوقك" */
         .guarantee-subtitle {
             font-size: 1.6rem;
             color: var(--text-dark); 
@@ -567,6 +475,7 @@
             font-weight: 800;
         }
 
+        /* تنسيق النجوم الذهبية */
         .guarantee-stars {
             color: var(--gold);
             font-size: 1.5rem;
@@ -574,6 +483,7 @@
             letter-spacing: 10px; 
         }
 
+        /* النص العربي التعريفي للضمان */
         .guarantee-content p {
             font-size: 1.25rem;
             line-height: 1.8;
@@ -585,6 +495,7 @@
             margin: 0;
         }
 
+        /* تمييز الجملة الهامة داخل النص لتلفت انتباه العميل */
         .highlight-text {
             color: var(--primary-brand); 
             font-weight: 900;
@@ -593,6 +504,7 @@
             border-radius: 5px;
         }
 
+        /* تجاوب التصميم مع الجوالات */
         @media (max-width: 768px) {
             .guarantee-title-new { font-size: 2.8rem; }
             .guarantee-subtitle { font-size: 1.3rem; }
@@ -1010,6 +922,7 @@
         
         .verified-icon {
             flex-shrink: 0; 
+            margin-top: 2px;
             vertical-align: middle;
         }
 
@@ -1250,6 +1163,106 @@
             .card-actions { gap: 8px; }
             .btn-action { font-size: 0.9rem; padding: 10px; }
         }
+
+        /* =========================================
+           ستايل قسم أتمتة التسويق (تم دمجه وعزل كلاساته)
+           ========================================= */
+        .ad-features-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            min-height: 300px;
+            overflow: hidden;
+            padding: 0 5%;
+        }
+        
+        .ad-features-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 2rem; 
+        }
+
+        .ad-feature-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0,0,0,0.03); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative; 
+            will-change: transform, opacity; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .ad-feature-card:hover {
+            transform: translateY(-8px) !important; 
+            box-shadow: 0 15px 40px rgba(18, 140, 126, 0.1); 
+            border-color: rgba(18, 140, 126, 0.2);
+        }
+
+        .ad-icon-wrapper {
+            width: 5rem;
+            height: 5rem;
+            background-color: #e8f5e9;
+            color: #128c7e;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .ad-feature-card:hover .ad-icon-wrapper {
+            transform: scale(1.1);
+        }
+
+        .ad-icon-wrapper i {
+            font-size: 2.5rem; 
+        }
+
+        .ad-feature-title {
+            color: #1c2b33;
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .ad-feature-desc {
+            font-size: 0.95rem;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        .ad-features-section.is-visible .ad-feature-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ad-features-section.is-visible .ad-feature-card:nth-child(1) { transition-delay: 0.1s; }
+        .ad-features-section.is-visible .ad-feature-card:nth-child(2) { transition-delay: 0.2s; }
+        .ad-features-section.is-visible .ad-feature-card:nth-child(3) { transition-delay: 0.3s; }
+        .ad-features-section.is-visible .ad-feature-card:nth-child(4) { transition-delay: 0.4s; }
+        .ad-features-section.is-visible .ad-feature-card:nth-child(5) { transition-delay: 0.5s; }
+        .ad-features-section.is-visible .ad-feature-card:nth-child(6) { transition-delay: 0.6s; }
+        .ad-features-section.is-visible .ad-feature-card:nth-child(7) { transition-delay: 0.7s; }
+        .ad-features-section.is-visible .ad-feature-card:nth-child(8) { transition-delay: 0.8s; }
+
+        @media (max-width: 1100px) {
+            .ad-features-container { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .ad-features-container { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .ad-features-container { grid-template-columns: 1fr; }
+        }
+        /* ========================================= */
     </style>
 </head>
 <body>
@@ -1265,7 +1278,7 @@
             <span class="logo-text">م. فتحي منتصر</span>
         </a>
         
-        <a href="https://www.linkedin.com/in/fathy-montaser" target="_blank" rel="noopener noreferrer" class="contact-btn" onclick="trackEvent('Click_LinkedIn')" aria-label="تواصل مع م. فتحي منتصر عبر لينكد إن">
+        <a href="https://www.linkedin.com/in/getduns" target="_blank" rel="noopener noreferrer" class="contact-btn" onclick="trackEvent('Click_LinkedIn')" aria-label="تواصل مع م. فتحي منتصر عبر لينكد إن">
             <i class="fab fa-linkedin" aria-hidden="true"></i> لينكد إن
         </a>
     </nav>
@@ -1286,82 +1299,75 @@
             <a href="#servicesGrid" class="hero-cta-btn">تصفح الخدمات والأسعار <i class="fas fa-arrow-down"></i></a>
         </section>
 
-        <!-- === بداية قسم متطلبات التحقق المضاف حديثاً === -->
-        <section class="requirements-section reveal">
-            <header class="req-header">
-                <!-- رسم شعار Meta Business Partner المصحح 100% -->
-                <svg class="req-meta-logo" viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg" aria-label="Meta Business Partner">
-                    <g>
-                        <!-- علامة اللانهاية الزرقاء -->
-                        <path transform="translate(30, 10) scale(0.55)" d="M73.16 35.19C65.59 21.03 51.52 12 36 12 16.12 12 0 28.12 0 48s16.12 36 36 36c15.52 0 29.59-9.03 37.16-23.19l.84-1.57.84 1.57C82.41 74.97 96.48 84 112 84c19.88 0 36-16.12 36-36s-16.12-36-36-36c-15.52 0-29.59 9.03-37.16 23.19l-.84 1.57-.84-1.57zM36 24c11.05 0 21.06 6.54 26.31 16.65l3.69 6.89-3.69 6.89C57.06 64.54 47.05 71.08 36 71.08 23.27 71.08 12.92 60.73 12.92 48S23.27 24.92 36 24.92zm76 46.16c-11.05 0-21.06-6.54-26.31-16.65l-3.69-6.89 3.69-6.89C90.94 30.54 100.95 24 112 24c12.73 0 23.08 10.35 23.08 23.08S124.73 71.08 112 71.08z" fill="#0668E1"/>
-                        <!-- كلمة Meta (تم إزاحتها للمحور X=120 لمنع التداخل) -->
-                        <text x="120" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="46" fill="#1c2b33" letter-spacing="-1">Meta</text>
-                    </g>
-                    <!-- السطر السفلي: كلمة Business Partner -->
-                    <text x="32" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="400" font-size="24" fill="#4B5563">Business Partner</text>
-                </svg>
-                <h2 class="req-title">متطلبات التحقق من النشاط التجاري</h2>
-            </header>
+        <!-- قسم خدمات المنصة المتقدمة لأتمتة التسويق (القسم المضاف) -->
+        <section class="ad-features-section" aria-label="خدمات المنصة المتقدمة">
+            <div class="ad-features-container">
+                <article class="ad-feature-card">
+                    <div class="ad-icon-wrapper">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="ad-feature-title">حلول أتمتة التسويق والمبيعات</h3>
+                    <p class="ad-feature-desc">أدوات ذكية لأتمتة حملات التسويق عبر واتساب ومتابعة العملاء المحتملين لزيادة المبيعات وتقليل العمل اليدوي</p>
+                </article>
 
-            <div class="req-content">
-                <ul class="req-list">
-                    <li><strong>السجل التجاري</strong>
-                        <ul class="req-sub-list">
-                            <li>يجب أن يكون السجل التجاري كاملاً وواضحاً كما في النموذج المعتمد.</li>
-                            <li>في حال كان السجل يحتوي فقط على باركود دون بيانات تفصيلية، <span class="text-red">فلن يتم قبوله</span>.</li>
-                        </ul>
-                    </li>
+                <article class="ad-feature-card">
+                    <div class="ad-icon-wrapper">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3 class="ad-feature-title">ربط واتساب API الرسمي</h3>
+                    <p class="ad-feature-desc">تجنب الحظر عبر تفعيل واتساب موثوق وإرسال رسائل جماعية آمنة</p>
+                </article>
 
-                    <li><strong>المستندات الرسمية</strong>
-                        <ul class="req-sub-list">
-                            <li>يجب أن تكون مستخرجة مباشرة من الجهة الحكومية، دون أي تعديل أو تحرير.</li>
-                            <li>لا تُقبل المستندات التالية:
-                                <ul class="req-nested-list">
-                                    <li>المستندات المعدلة أو المحررة يدوياً.</li>
-                                    <li>المستندات الممسوحة ضوئياً (Scan).</li>
-                                    <li>لقطات الشاشة (Screenshots).</li>
-                                    <li>الملفات المدمجة أو المجمعة.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                <article class="ad-feature-card">
+                    <div class="ad-icon-wrapper">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="ad-feature-title">إدارة دعم العملاء والردود الآلية</h3>
+                    <p class="ad-feature-desc">يمكنك الاختيار بين ردود آلية فعالة أو استخدام الذكاء الاصطناعي</p>
+                </article>
 
-                    <li><strong>مستندات التوثيق المطلوبة</strong>
-                        <ul class="req-sub-list">
-                            <li>إثبات عنوان وطني ساري.</li>
-                            <li>شهادة أو عقد تأسيس الشركة / منظمة غير ربحية / الجهة.
-                                <ul class="req-nested-list">
-                                    <li class="text-gold">في حال كانت الجهة منظمة غير هادفة للربح:</li>
-                                    <li>يجب توفير ترخيص الجمعية.</li>
-                                    <li>قرار تشكيل مجلس الإدارة.</li>
-                                </ul>
-                            </li>
-                            <li>سجل النشاط التجاري أو الترخيص الرسمي.</li>
-                            <li>مستند ضريبي للنشاط التجاري صادر من جهة حكومية <span class="text-red">(اختياري)</span>.
-                                <ul class="req-nested-list">
-                                    <li>يمكن أن يشمل ذلك: الشهادة الضريبية.</li>
-                                    <li>لن تقبل المستندات الضريبية المقدمة ذاتياً أو غير الصادرة من جهة رسمية.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                <article class="ad-feature-card">
+                    <div class="ad-icon-wrapper">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="ad-feature-title">الحملات الإعلانية</h3>
+                    <p class="ad-feature-desc">نظم حملات تسويقية عبر الواتس تصل إلى آلاف الرسائل بدون حظر</p>
+                </article>
+                
+                <article class="ad-feature-card">
+                    <div class="ad-icon-wrapper">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="ad-feature-title">عملاء جدد تلقائياً</h3>
+                    <p class="ad-feature-desc">اربط موقعك أو صفحات الهبوط أو الحملات الإعلانية بالمنصة للحصول على بيانات العملاء المحتملين وحولهم إلى عملاء حقيقيين</p>
+                </article>
 
-                    <li><strong>التحقق من البريد الإلكتروني ورقم الهاتف</strong>
-                        <ul class="req-sub-list">
-                            <li>يجب توفير بريد إلكتروني رسمي تابع لنطاق الموقع (مثال: info@example.sa).</li>
-                            <li>رقم الهاتف المستخدم للتحقق يجب أن يكون:
-                                <ul class="req-nested-list">
-                                    <li>رقم هاتف ثابت أو جوال للشركة.</li>
-                                    <li>توفير شريحة باسم المنشأة.</li>
-                                    <li>توفر عقد إلكتروني للشريحة من شركة الاتصالات.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                <article class="ad-feature-card">
+                    <div class="ad-icon-wrapper">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="ad-feature-title">وظف مدير للمنصة</h3>
+                    <p class="ad-feature-desc">يمكنك من خلال المنصة توظيف مدير لإدارة حسابك كاملاً من تصاميم وحملات وردود وترتيب عملائك الجدد</p>
+                </article>
+                
+                <article class="ad-feature-card">
+                    <div class="ad-icon-wrapper">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="ad-feature-title">برنامج CRM متكامل</h3>
+                    <p class="ad-feature-desc">إدارة كاملة لموظفيك ومتابعتهم عن بعد وأدر جميع أعمالك عن بعد بنجاح</p>
+                </article>
+
+                <article class="ad-feature-card">
+                    <div class="ad-icon-wrapper">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="ad-feature-title">تفعيل رسائل OTP</h3>
+                    <p class="ad-feature-desc">فعل أكواد OTP عن طريق الواتس واحصل على داتا المسجلين في موقعك مباشرة</p>
+                </article>
             </div>
         </section>
-        <!-- === نهاية قسم متطلبات التحقق === -->
+        <!-- نهاية قسم خدمات المنصة -->
 
         <!-- بداية قسم الضمان الذهبي الاحترافي الجديد والمندمج مع الموقع -->
         <section class="premium-guarantee-section reveal">
@@ -1417,7 +1423,7 @@
                         <span class="new-price">$50</span>
                     </div>
                     <div class="card-actions">
-                        <a href="https://fathymontaser.gumroad.com/l/BMV" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy" onclick="trackEvent('Buy_Meta')" aria-label="اطلب خدمة توثيق Meta مباشرة">
+                        <a href="https://getduns.gumroad.com/l/BMV" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy" onclick="trackEvent('Buy_Meta')" aria-label="اطلب خدمة توثيق Meta مباشرة">
                             <i class="fas fa-bolt" aria-hidden="true"></i> اطلب الخدمة مباشرة
                         </a>
                         <a href="https://calendly.com/verify-verifywith/15" target="_blank" rel="noopener noreferrer" class="btn-action btn-consult" onclick="trackEvent('Click_Calendly')" aria-label="احجز مكالمة استشارية لتوثيق Meta">
@@ -1436,7 +1442,7 @@
                         <span class="new-price">$50</span>
                     </div>
                     <div class="card-actions">
-                        <a href="https://fathymontaser.gumroad.com/l/DUNS" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy" onclick="trackEvent('Buy_DUNS')" aria-label="اطلب استخراج رقم DUNS مباشرة">
+                        <a href="https://getduns.gumroad.com/l/DUNS" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy" onclick="trackEvent('Buy_DUNS')" aria-label="اطلب استخراج رقم DUNS مباشرة">
                             <i class="fas fa-bolt" aria-hidden="true"></i> اطلب الخدمة مباشرة
                         </a>
                         <a href="https://calendly.com/verify-verifywith/15" target="_blank" rel="noopener noreferrer" class="btn-action btn-consult" onclick="trackEvent('Click_Calendly')" aria-label="احجز مكالمة استشارية لاستخراج DUNS">
@@ -1455,7 +1461,7 @@
                         <span class="new-price">$50</span>
                     </div>
                     <div class="card-actions">
-                        <a href="https://fathymontaser.gumroad.com/l/ad" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy btn-green" onclick="trackEvent('Buy_Tax')" aria-label="اطلب خدمة الإعفاء الضريبي مباشرة">
+                        <a href="https://getduns.gumroad.com/l/ad" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy btn-green" onclick="trackEvent('Buy_Tax')" aria-label="اطلب خدمة الإعفاء الضريبي مباشرة">
                             <i class="fas fa-bolt" aria-hidden="true"></i> اطلب الخدمة مباشرة
                         </a>
                         <a href="https://calendly.com/verify-verifywith/15" target="_blank" rel="noopener noreferrer" class="btn-action btn-consult" onclick="trackEvent('Click_Calendly')" aria-label="احجز استشارة للإعفاء الضريبي">
@@ -1474,7 +1480,7 @@
                         <span class="new-price">$25</span>
                     </div>
                     <div class="card-actions">
-                        <a href="https://fathymontaser.gumroad.com/l/API" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy" onclick="trackEvent('Buy_API')" aria-label="اطلب خدمة WhatsApp API مباشرة">
+                        <a href="https://getduns.gumroad.com/l/API" target="_blank" rel="noopener noreferrer" class="btn-action btn-buy" onclick="trackEvent('Buy_API')" aria-label="اطلب خدمة WhatsApp API مباشرة">
                             <i class="fas fa-bolt" aria-hidden="true"></i> اطلب الخدمة مباشرة
                         </a>
                         <a href="https://calendly.com/verify-verifywith/15" target="_blank" rel="noopener noreferrer" class="btn-action btn-consult" onclick="trackEvent('Click_Calendly')" aria-label="احجز استشارة لتأسيس الواتساب">
@@ -1558,7 +1564,6 @@
             </div>
         </section>
 
-        <!-- تم تحديث قسم التكامل المرن وإضافة الشريط المتحرك اللانهائي المنسجم مع تصميم الموقع -->
         <section class="section" data-wa-msg="هل تريد ربط أنظمتك الحالية بسهولة؟ تحدث معي 👋">
             <div class="integration-wrapper reveal">
                 <div class="integration-content">
@@ -1569,7 +1574,6 @@
                 
                 <div class="marquee-container">
                     <div class="marquee-content">
-                        <!-- المجموعة الأولى من الأيقونات -->
                         <div class="icon-box" title="WooCommerce"><div style="background: #96588a; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 10px; font-family: Arial, sans-serif;" aria-hidden="true">woo</div></div>
                         <div class="icon-box" title="Mailchimp"><div style="background: #ffe01b; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;" aria-hidden="true"><i class="fab fa-mailchimp" style="color: #000; font-size: 1.2rem;" aria-hidden="true"></i></div></div>
                         <div class="icon-box" title="Microsoft Dynamics"><span style="color: #002050; font-weight: 900; font-size: 1.5rem; font-family: Arial, sans-serif;" aria-hidden="true">D</span></div>
@@ -1589,7 +1593,6 @@
                         <div class="icon-box" title="Intercom"><i class="fas fa-smile" style="color: #1ca4ff; font-size: 1.8rem;" aria-hidden="true"></i></div>
                         <div class="icon-box" title="Slack"><i class="fab fa-slack" style="color: #E01E5A; font-size: 1.8rem;" aria-hidden="true"></i></div>
                         
-                        <!-- مجموعة مكررة لضمان استمرارية الشريط المتحرك بسلاسة -->
                         <div class="icon-box" title="WooCommerce"><div style="background: #96588a; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 10px; font-family: Arial, sans-serif;" aria-hidden="true">woo</div></div>
                         <div class="icon-box" title="Mailchimp"><div style="background: #ffe01b; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;" aria-hidden="true"><i class="fab fa-mailchimp" style="color: #000; font-size: 1.2rem;" aria-hidden="true"></i></div></div>
                         <div class="icon-box" title="Microsoft Dynamics"><span style="color: #002050; font-weight: 900; font-size: 1.5rem; font-family: Arial, sans-serif;" aria-hidden="true">D</span></div>
@@ -1610,7 +1613,8 @@
                     <div class="testimonial-header">
                         <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e0e6ed'/><path d='M25 90c0-20 10-35 25-35s25 15 25 35' fill='%23112b1a'/><circle cx='50' cy='40' r='18' fill='%23fadcbe'/><path d='M32 25c0-10 10-20 18-20s18 10 18 20v20c0 10-10 15-18 15s-18-5-18-15V25z' fill='%23fff'/><path d='M30 20c5-5 15-5 40 0' stroke='%23000' stroke-width='4' fill='none'/></svg>" alt="صالح باوارث" class="client-avatar" loading="lazy">
                         <div class="client-info">
-                            <h4>أستاذ / صالح باوارث <svg class="verified-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m23.111 11.084-2.197-2.618a.952.952 0 0 1-.22-.84l.643-3.351c.218-1.134-.78-2.13-1.913-1.913l-3.352.643a.952.952 0 0 1-.84-.22L12.614.588c-.87-.731-2.2-.731-3.07 0l-2.618 2.197a.952.952 0 0 1-.84.22l-3.351-.643c-1.133-.217-2.13.779-1.913 1.913l.643 3.352a.952.952 0 0 1-.22.84L.889 11.085c-.731.87-.731 2.2 0 3.07l2.197 2.618c.228.272.306.638.22.84l-.643 3.351c-.217 1.133.779 2.13 1.913 1.913l3.352-.643a.952.952 0 0 1 .84.22l2.618 2.197c.87.731 2.2.731 3.07 0l2.618-2.197a.952.952 0 0 1 .84-.22l3.351.643c1.134.218 2.131-.78 1.914-1.913l-.643-3.352a.952.952 0 0 1 .22-.84l2.618-2.197c.731-.87.731-2.2 0-3.07Z" fill="#0866FF"/><path d="M16.485 9.083a.965.965 0 0 1 0 1.365l-5.69 5.69a.965.965 0 0 1-1.365 0l-2.844-2.844a.965.965 0 0 1 1.365-1.365l2.161 2.16 5.008-5.006a.965.965 0 0 1 1.365 0Z" fill="#ffffff"/></svg></h4>
+                            <!-- تمت إضافة علامة التوثيق الزرقاء بتصميمها الدقيق -->
+                            <h4>أستاذ / صالح باوارث <svg class="verified-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.44 2.112c-.276-.233-.703-.233-.979 0l-1.397 1.18c-.282.239-.673.344-1.037.28L6.9 3.295c-.356-.062-.693.13-.815.466l-.612 1.687c-.125.344-.413.633-.757.757l-1.688.613c-.335.122-.527.46-.465.815l.277 2.127c.063.364-.042.755-.28 1.037l-1.18 1.397c-.233.276-.233.703 0 .979l1.18 1.397c.238.282.343.673.28 1.037l-.277 2.127c-.062.356.13.693.465.815l1.688.613c.344.124.632.413.757.757l.612 1.687c.122.336.459.528.815.466l2.127-.277c.364-.063.755.042 1.037.28l1.397 1.18c.276.233.703.233.979 0l1.397-1.18c.282-.238.673-.343 1.037-.28l2.127.277c.356.062.693-.13.815-.466l.613-1.687c.124-.344.413-.633.757-.757l1.687-.613c.336-.122.528-.459.466-.815l-.277-2.127c-.063-.364.042-.755.28-1.037l1.18-1.397c.233-.276.233-.703 0-.979l-1.18-1.397c-.238-.282-.343-.673-.28-1.037l.277-2.127c.062-.356-.13-.693-.466-.815l-1.687-.613c-.344-.124-.633-.413-.757-.757l-.613-1.687c-.122-.336-.459-.528-.815-.466l-2.127.277c-.364.063-.755-.042-1.037-.28l-1.397-1.18z" fill="#0866FF"/><path d="M10.22 15.688l-3.33-3.331a.75.75 0 111.06-1.061l2.27 2.27 5.67-5.67a.75.75 0 011.06 1.061l-6.2 6.2a.75.75 0 01-1.06 0z" fill="#FFF"/></svg></h4>
                             <p>عميل متميز، المملكة العربية السعودية</p>
                         </div>
                     </div>
@@ -1629,7 +1633,8 @@
                     <div class="testimonial-header">
                         <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e0e6ed'/><path d='M25 90c0-20 10-35 25-35s25 15 25 35' fill='%23112b1a'/><circle cx='50' cy='40' r='18' fill='%23fadcbe'/><path d='M32 25c0-10 10-20 18-20s18 10 18 20v20c0 10-10 15-18 15s-18-5-18-15V25z' fill='%23fff'/><path d='M30 20c5-5 15-5 40 0' stroke='%23000' stroke-width='4' fill='none'/></svg>" alt="بدر الروقي" class="client-avatar" loading="lazy">
                         <div class="client-info">
-                            <h4>السيد / بدر الروقي <svg class="verified-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m23.111 11.084-2.197-2.618a.952.952 0 0 1-.22-.84l.643-3.351c.218-1.134-.78-2.13-1.913-1.913l-3.352.643a.952.952 0 0 1-.84-.22L12.614.588c-.87-.731-2.2-.731-3.07 0l-2.618 2.197a.952.952 0 0 1-.84.22l-3.351-.643c-1.133-.217-2.13.779-1.913 1.913l.643 3.352a.952.952 0 0 1-.22.84L.889 11.085c-.731.87-.731 2.2 0 3.07l2.197 2.618c.228.272.306.638.22.84l-.643 3.351c-.217 1.133.779 2.13 1.913 1.913l3.352-.643a.952.952 0 0 1 .84.22l2.618 2.197c.87.731 2.2.731 3.07 0l2.618-2.197a.952.952 0 0 1 .84-.22l3.351.643c1.134.218 2.131-.78 1.914-1.913l-.643-3.352a.952.952 0 0 1 .22-.84l2.618-2.197c.731-.87.731-2.2 0-3.07Z" fill="#0866FF"/><path d="M16.485 9.083a.965.965 0 0 1 0 1.365l-5.69 5.69a.965.965 0 0 1-1.365 0l-2.844-2.844a.965.965 0 0 1 1.365-1.365l2.161 2.16 5.008-5.006a.965.965 0 0 1 1.365 0Z" fill="#ffffff"/></svg></h4>
+                            <!-- تمت إضافة علامة التوثيق الزرقاء بتصميمها الدقيق -->
+                            <h4>السيد / بدر الروقي <svg class="verified-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.44 2.112c-.276-.233-.703-.233-.979 0l-1.397 1.18c-.282.239-.673.344-1.037.28L6.9 3.295c-.356-.062-.693.13-.815.466l-.612 1.687c-.125.344-.413.633-.757.757l-1.688.613c-.335.122-.527.46-.465.815l.277 2.127c.063.364-.042.755-.28 1.037l-1.18 1.397c-.233.276-.233.703 0 .979l1.18 1.397c.238.282.343.673.28 1.037l-.277 2.127c-.062.356.13.693.465.815l1.688.613c.344.124.632.413.757.757l.612 1.687c.122.336.459.528.815.466l2.127-.277c.364-.063.755.042 1.037.28l1.397 1.18c.276.233.703.233.979 0l1.397-1.18c.282-.238.673-.343 1.037-.28l2.127.277c.356.062.693-.13.815-.466l.613-1.687c.124-.344.413-.633.757-.757l1.687-.613c.336-.122.528-.459.466-.815l-.277-2.127c-.063-.364.042-.755.28-1.037l1.18-1.397c.233-.276.233-.703 0-.979l-1.18-1.397c-.238-.282-.343-.673-.28-1.037l.277-2.127c.062-.356-.13-.693-.466-.815l-1.687-.613c-.344-.124-.633-.413-.757-.757l-.613-1.687c-.122-.336-.459-.528-.815-.466l-2.127.277c-.364.063-.755-.042-1.037-.28l-1.397-1.18z" fill="#0866FF"/><path d="M10.22 15.688l-3.33-3.331a.75.75 0 111.06-1.061l2.27 2.27 5.67-5.67a.75.75 0 011.06 1.061l-6.2 6.2a.75.75 0 01-1.06 0z" fill="#FFFFFF"/></svg></h4>
                             <p>عميل متميز، المملكة العربية السعودية</p>
                         </div>
                     </div>
@@ -1648,7 +1653,8 @@
                     <div class="testimonial-header">
                         <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e0e6ed'/><path d='M25 90c0-20 10-35 25-35s25 15 25 35' fill='%23112b1a'/><circle cx='50' cy='40' r='18' fill='%23fadcbe'/><path d='M32 25c0-10 10-20 18-20s18 10 18 20v20c0 10-10 15-18 15s-18-5-18-15V25z' fill='%23fff'/><path d='M30 20c5-5 15-5 40 0' stroke='%23000' stroke-width='4' fill='none'/></svg>" alt="احمد سالم" class="client-avatar" loading="lazy">
                         <div class="client-info">
-                            <h4>أستاذ / احمد سالم <svg class="verified-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m23.111 11.084-2.197-2.618a.952.952 0 0 1-.22-.84l.643-3.351c.218-1.134-.78-2.13-1.913-1.913l-3.352.643a.952.952 0 0 1-.84-.22L12.614.588c-.87-.731-2.2-.731-3.07 0l-2.618 2.197a.952.952 0 0 1-.84.22l-3.351-.643c-1.133-.217-2.13.779-1.913 1.913l.643 3.352a.952.952 0 0 1-.22.84L.889 11.085c-.731.87-.731 2.2 0 3.07l2.197 2.618c.228.272.306.638.22.84l-.643 3.351c-.217 1.133.779 2.13 1.913 1.913l3.352-.643a.952.952 0 0 1 .84.22l2.618 2.197c.87.731 2.2.731 3.07 0l2.618-2.197a.952.952 0 0 1 .84-.22l3.351.643c1.134.218 2.131-.78 1.914-1.913l-.643-3.352a.952.952 0 0 1 .22-.84l2.618-2.197c.731-.87.731-2.2 0-3.07Z" fill="#0866FF"/><path d="M16.485 9.083a.965.965 0 0 1 0 1.365l-5.69 5.69a.965.965 0 0 1-1.365 0l-2.844-2.844a.965.965 0 0 1 1.365-1.365l2.161 2.16 5.008-5.006a.965.965 0 0 1 1.365 0Z" fill="#ffffff"/></svg></h4>
+                            <!-- تمت إضافة علامة التوثيق الزرقاء بتصميمها الدقيق -->
+                            <h4>أستاذ / احمد سالم <svg class="verified-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.44 2.112c-.276-.233-.703-.233-.979 0l-1.397 1.18c-.282.239-.673.344-1.037.28L6.9 3.295c-.356-.062-.693.13-.815.466l-.612 1.687c-.125.344-.413.633-.757.757l-1.688.613c-.335.122-.527.46-.465.815l.277 2.127c.063.364-.042.755-.28 1.037l-1.18 1.397c-.233.276-.233.703 0 .979l1.18 1.397c.238.282.343.673.28 1.037l-.277 2.127c-.062.356.13.693.465.815l1.688.613c.344.124.632.413.757.757l.612 1.687c.122.336.459.528.815.466l2.127-.277c.364-.063.755.042 1.037.28l1.397 1.18c.276.233.703.233.979 0l1.397-1.18c.282-.238.673-.343 1.037-.28l2.127.277c.356.062.693-.13.815-.466l.613-1.687c.124-.344.413-.633.757-.757l1.687-.613c.336-.122.528-.459.466-.815l-.277-2.127c-.063-.364.042-.755.28-1.037l1.18-1.397c.233-.276.233-.703 0-.979l-1.18-1.397c-.238-.282-.343-.673-.28-1.037l.277-2.127c.062-.356-.13-.693-.466-.815l-1.687-.613c-.344-.124-.633-.413-.757-.757l-.613-1.687c-.122-.336-.459-.528-.815-.466l-2.127.277c-.364.063-.755-.042-1.037-.28l-1.397-1.18z" fill="#0866FF"/><path d="M10.22 15.688l-3.33-3.331a.75.75 0 111.06-1.061l2.27 2.27 5.67-5.67a.75.75 0 011.06 1.061l-6.2 6.2a.75.75 0 01-1.06 0z" fill="#FFF"/></svg></h4>
                             <p>عميل متميز، المملكة العربية السعودية</p>
                         </div>
                     </div>
@@ -1881,6 +1887,27 @@
                 }
             }
         }, true);
+
+        // سكربت تحريك قسم خدمات المنصة المتقدمة (تمت إضافته ودمجه هنا)
+        document.addEventListener('DOMContentLoaded', () => {
+            const adFeaturesSection = document.querySelector('.ad-features-section');
+            
+            if(adFeaturesSection) {
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            adFeaturesSection.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1, 
+                    rootMargin: '0px 0px -50px 0px' 
+                });
+
+                observer.observe(adFeaturesSection);
+            }
+        });
     </script>
 </body>
 </html>
